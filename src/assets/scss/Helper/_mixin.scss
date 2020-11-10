@@ -1,0 +1,38 @@
+@mixin styleText($color,$fs,$fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin styleButton($boder-color,$bg-color,$pd-y,$pd-x,$radius) {
+    border: 1px solid $boder-color;
+    background-color: $bg-color;
+    padding: $pd-y $pd-x;
+    border-radius: $radius;
+}
+
+@mixin styleButtonHover($bd-color,$bg-color,$color) {
+    border-color: $bd-color;
+    background-color: $bg-color;
+    color: $color;
+}
+
+//Yêu cầu, tham số small: screen name
+// Kết quả : 576px
+// %screen : small
+@mixin responsive($screen) {
+    // map: tên mảng cần duyệt
+    @if (map-has-key($map:$breakpoints , $key:$screen)) {
+        // Nếu tên màn hình đúng thì lấy giá trị
+        // lấy kích thước màn hình dựa vào tên màn hình
+        $value:map-get($map:$breakpoints , $key:$screen);
+        @media screen and (max-width:$value){
+            @content;
+        }
+    }
+    @else{
+        @warn 'Màn hình không đúng'
+    }
+
+}
+

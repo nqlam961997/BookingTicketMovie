@@ -1,0 +1,19 @@
+.btn-white{
+    @include styleButton($color-gray-4,$color-white-0,$pd-1 + 1,$pd-1 + 2,$border-radius);
+    @include styleText($color-gray-4,$fs-0,$fw-bold);
+    &:hover{
+        @include styleButtonHover($color-black-0,$color-white-0,$color-black-0);
+    }
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.btn-red{
+    @include styleButton($color-trans,$color-red-0,$pd-1 + 1,$pd-1 + 2,$border-radius);
+    @include styleText($color-white-0,$fs-0,$fw-bold);
+    &:hover{
+        @include styleButtonHover($color-trans,$color-red-1,$color-white-0);
+    }
+    cursor: pointer;
+    transition: all .5s;
+}
