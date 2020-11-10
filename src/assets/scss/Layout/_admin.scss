@@ -1,0 +1,49 @@
+.admin_logo {
+  text-align: center;
+
+  img {
+    margin-bottom: 10%;
+  }
+
+  .admin_text {
+    margin-bottom: 10%;
+  }
+}
+
+.ant-layout-footer {
+  padding: 0 50px;
+}
+
+.edit {
+  padding: 5px 25px;
+  margin: 0 5px;
+  background-color: #fff;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  color: #28a745;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+}
+
+.delete {
+  padding: 5px 25px;
+  margin: 0 5px;
+  background-color: #fff;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  color: #dc3545;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+}

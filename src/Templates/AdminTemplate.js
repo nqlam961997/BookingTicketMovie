@@ -1,0 +1,115 @@
+import { NavLink, Route } from "react-router-dom";
+import "antd/dist/antd.css";
+import { Layout, Menu, Breadcrumb } from "antd";
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { useState } from "react";
+
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
+
+export const AdminTemplate = (props) => {
+  const [state, setState] = useState({
+    collapsed: false,
+  });
+  let { Component, ...restParams } = props;
+
+  const onCollapse = (collapsed) => {
+    console.log(collapsed);
+    setState({ collapsed });
+  };
+
+  return (
+    <Route
+      {...restParams}
+      render={(propsRoute) => {
+        return (
+          <>
+            <Layout style={{ minHeight: "100vh" }}>
+              <Sider
+                collapsible
+                collapsed={state.collapsed}
+                onCollapse={onCollapse}
+              >
+                <div className="logo" />
+                <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+                  <div className="admin_logo">
+                    <img
+                      style={{ borderRadius: "50%" }}
+                      src="https://picsum.photos/50/50"
+                    />
+                    {!state.collapsed ? (
+                      <div
+                        className="admin_text"
+                        style={{
+                          fontSize: "1.5rem",
+                          color: "orange",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        CyberSoft
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <SubMenu
+                    key="sub1"
+                    icon={<UserOutlined />}
+                    title="Danh muc phim"
+                  >
+                    <Menu.Item key="3">
+                      <NavLink exact to="/admin/quanlyphim">
+                        Quản lý phim
+                      </NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="5">Them phim moi</Menu.Item>
+                  </SubMenu>
+                  <SubMenu
+                    key="sub2"
+                    icon={<TeamOutlined />}
+                    title="Danh muc nguoi dung"
+                  >
+                    <Menu.Item key="6">
+                      <NavLink exact to="/admin/quanlynguoidung">
+                        Danh sach người dùng
+                      </NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="8">Thêm người dùng</Menu.Item>
+                  </SubMenu>
+                  <Menu.Item key="9" icon={<FileOutlined />}>
+                    Files
+                  </Menu.Item>
+                </Menu>
+              </Sider>
+              <Layout className="site-layout">
+                <Content style={{ margin: "0 16px" }}>
+                  {/* <Breadcrumb style={{ margin: "16px 0" }}>
+                    <Breadcrumb.Item>User</Breadcrumb.Item>
+                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                  </Breadcrumb> */}
+                  <div
+                    className="site-layout-background"
+                    style={{ padding: 24, minHeight: 360 }}
+                  >
+                    <Component {...propsRoute} />
+                  </div>
+                </Content>
+                <Footer style={{ textAlign: "center" }}>
+                  <h1 style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+                    CYBER-MOVIE
+                  </h1>
+                </Footer>
+              </Layout>
+            </Layout>
+          </>
+        );
+      }}
+    />
+  );
+};

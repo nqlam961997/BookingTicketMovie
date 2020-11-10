@@ -9,8 +9,11 @@ import TinTuc from "./Pages/TinTuc";
 import { UserTemplate } from "./Templates/UserTemplate";
 import DangKy from "./Components/DangKy/DangKy";
 import DangNhap from "./Components/DangNhap/DangNhap";
-import PhimDangChieu from './Pages/PhimDangChieu';
-import PhimSapChieu from './Pages/PhimSapChieu';
+import PhimDangChieu from "./Pages/PhimDangChieu";
+import PhimSapChieu from "./Pages/PhimSapChieu";
+import { AdminTemplate } from "./Templates/AdminTemplate";
+import QuanLyPhim from "./Pages/Admin/QuanLyPhim";
+import QuanLyNguoiDung from "./Pages/Admin/QuanLyNguoiDung";
 
 function App() {
   return (
@@ -24,6 +27,13 @@ function App() {
         <UserTemplate exact path="/dangnhap" Component={DangNhap} />
         <UserTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
         <UserTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
+
+        <AdminTemplate exact path="/admin/quanlyphim" Component={QuanLyPhim} />
+        <AdminTemplate
+          exact
+          path="/admin/quanlynguoidung"
+          Component={QuanLyNguoiDung}
+        />
       </Switch>
     </>
   );
