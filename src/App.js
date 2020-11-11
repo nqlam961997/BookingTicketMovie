@@ -9,8 +9,8 @@ import TinTuc from "./Pages/TinTuc";
 import { UserTemplate } from "./Templates/UserTemplate";
 import DangKy from "./Components/DangKy/DangKy";
 import DangNhap from "./Components/DangNhap/DangNhap";
-import PhimDangChieu from './Pages/PhimDangChieu';
-import PhimSapChieu from './Pages/PhimSapChieu';
+import PhimDangChieu from "./Pages/PhimDangChieu";
+import PhimSapChieu from "./Pages/PhimSapChieu";
 
 function App() {
   return (
