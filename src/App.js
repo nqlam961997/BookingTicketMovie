@@ -12,8 +12,9 @@ import DangNhap from "./Components/DangNhap/DangNhap";
 import PhimDangChieu from "./Pages/PhimDangChieu";
 import PhimSapChieu from "./Pages/PhimSapChieu";
 import { AdminTemplate } from "./Templates/AdminTemplate";
-import QuanLyPhim from "./Pages/Admin/QuanLyPhim";
+import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
 import QuanLyNguoiDung from "./Pages/Admin/QuanLyNguoiDung";
+import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <UserTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
 
         <AdminTemplate exact path="/admin/quanlyphim" Component={QuanLyPhim} />
+        <AdminTemplate exact path="/admin/themphim" Component={ThemPhim} />
         <AdminTemplate
           exact
           path="/admin/quanlynguoidung"

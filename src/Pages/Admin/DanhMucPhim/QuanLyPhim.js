@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   layDanhSachPhimApiAction,
   xoaPhimApiAction,
-} from "../../Redux/actions/AdminAction/QuanLyPhimAction";
+} from "../../../Redux/actions/AdminAction/QuanLyPhimAction";
 
 export default function QuanLyPhim() {
   const { dsPhim } = useSelector((state) => state.QuanLyPhimReducer);

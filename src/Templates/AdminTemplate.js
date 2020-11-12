@@ -68,7 +68,11 @@ export const AdminTemplate = (props) => {
                         Quản lý phim
                       </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="5">Them phim moi</Menu.Item>
+                    <Menu.Item key="5">
+                      <NavLink exact to="/admin/themphim">
+                        Thêm phim mới
+                      </NavLink>
+                    </Menu.Item>
                   </SubMenu>
                   <SubMenu
                     key="sub2"
