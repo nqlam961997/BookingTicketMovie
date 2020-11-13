@@ -1,16 +1,10 @@
 import { NavLink, Route } from "react-router-dom";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb } from "antd";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { FileOutlined, TeamOutlined, UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export const AdminTemplate = (props) => {
@@ -42,6 +36,7 @@ export const AdminTemplate = (props) => {
                     <img
                       style={{ borderRadius: "50%" }}
                       src="https://picsum.photos/50/50"
+                      alt=""
                     />
                     {!state.collapsed ? (
                       <div

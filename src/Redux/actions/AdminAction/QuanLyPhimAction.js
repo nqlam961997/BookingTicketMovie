@@ -27,11 +27,14 @@ export const layDanhSachPhimApiAction = () => {
 };
 
 export const themPhimMoiApiAction = (thongTin) => {
-  console.log(thongTin);
+  console.log(thongTin.get("tenPhim"));
+  console.log(thongTin.get("maPhim"));
+  console.log(thongTin.get("hinhAnh"));
   return async (dispatch) => {
     try {
       let { data, status } = await Axios({
-        url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim",
+        url:
+          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh",
         method: "POST",
         data: thongTin,
       });

@@ -1,84 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
-import { Form, Input, Button, DatePicker, Space } from "antd";
 import { useDispatch } from "react-redux";
 import { themPhimMoiApiAction } from "../../../Redux/actions/AdminAction/QuanLyPhimAction";
 
 export default function ThemPhim() {
+  const [state, setState] = useState({
+    hinhAnh: {},
+    maPhim: "",
+    tenPhim: "",
+    trailer: "",
+    moTa: "",
+    maNhom: "GP01",
+  });
+
   const dispatch = useDispatch();
 
-  const layout = {
-    labelCol: {
-      span: 5,
-    },
-    wrapperCol: {
-      span: 12,
-    },
+  const handleChange = (e) => {
+    let target = e.target;
+    if (target.name === "hinhAnh") {
+      setState({ ...state, hinhAnh: e.target.files[0] });
+    } else {
+      setState({ ...state, [e.target.name]: e.target.value });
+    }
   };
-  const validateMessages = {
-    required: "${label} Không được bỏ trống",
-    types: {
-      email: "${label} is not a valid email!",
-      number: "${label} is not a valid number!",
-    },
-    number: {
-      range: "${label} must be between ${min} and ${max}",
-    },
-  };
+  // console.log(state);
 
-  const onFinish = (values) => {
-    // console.log(values);
-    dispatch(themPhimMoiApiAction(values));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    var form_data = new FormData();
+    for (var key in state) {
+      form_data.append(key, state[key]);
+    }
+    // console.log("hinhanh ->", form_data.get("hinhAnh"));
+    dispatch(await themPhimMoiApiAction(form_data));
   };
 
   return (
-    <Form
-      {...layout}
-      name="nest-messages"
-      onFinish={onFinish}
-      validateMessages={validateMessages}
-    >
-      <Form.Item
-        name={"tenPhim"}
-        label="Tên phim"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    <div>
+      <h1>THÊM PHIM</h1>
+      <form className="container-form" onSubmit={handleSubmit}>
+        <div className="thongTin">
+          <div className="form-group">
+            <p>Mã nhóm</p>
+            <input
+              name="maNhom"
+              value="GP01"
+              onChange={handleChange}
+              disabled
+            />
+          </div>
 
-      <Form.Item name={"biDanh"} label="Bí danh">
-        <Input />
-      </Form.Item>
+          <div className="form-group">
+            <p>Mã phim</p>
+            <input
+              type="number"
+              name="maPhim"
+              id="maPhim"
+              onChange={handleChange}
+            />
+          </div>
 
-      <Form.Item name={"trailer"} label="Trailer">
-        <Input />
-      </Form.Item>
+          <div className="form-group">
+            <p>Tên phim</p>
+            <input name="tenPhim" id="tenPhim" onChange={handleChange} />
+          </div>
 
-      <Form.Item name={"hinhAnh"} label="Hình ảnh">
-        <input type="file" />
-      </Form.Item>
+          <div className="form-group">
+            <p>Trailer</p>
+            <input name="trailer" onChange={handleChange} />
+          </div>
+        </div>
 
-      <Form.Item name={"moTa"} label="Mô tả">
-        <Input.TextArea />
-      </Form.Item>
+        <div className="upHinh">
+          <div className="form-group">
+            <p>Hình ảnh</p>
+            <input type="file" name="hinhAnh" onChange={handleChange} />
+          </div>
+        </div>
 
-      <Form.Item name={"ngayKhoiChieu"} label="Ngày khởi chiếu">
-        <input type="date" />
-      </Form.Item>
-
-      <Form.Item name={"danhGia"} label="Đánh giá">
-        <Input.TextArea />
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 5 }}>
-        <Button type="primary" htmlType="submit">
-          Thêm phim
-        </Button>
-      </Form.Item>
-    </Form>
+        <button className="themPhim">Thêm phim</button>
+      </form>
+    </div>
   );
+}
+
+{
+  /* <div className="form-group">
+        <div className="form-text">
+          <p>Tên phim</p>
+        </div>
+        <input name="tenPhim" />
+      </div>
+
+      <div className="form-group">
+        <p>Bí danh</p>
+        <input name="biDanh" />
+      </div>
+
+      
+
+       */
 }
