@@ -17,10 +17,15 @@ export const UserTemplate = (props) => {
       render={(...propsRoute) => {
         return (
           <div>
-              <div>
-                <Header/>
+            <div>
+              <Header />
+              <div className="main">
+                <div className="layout-dangnhap">
+                  <img src="img/bg-dangki.jpg"></img>
+                </div>
                 <Component {...propsRoute} />
               </div>
+            </div>
           </div>
         );
       }}
