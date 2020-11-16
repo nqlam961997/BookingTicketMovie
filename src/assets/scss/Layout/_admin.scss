@@ -107,7 +107,7 @@ h1 {
     width: 95%;
     padding: 5px 0;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #28a745;
     color: #fff;
     font-weight: bold;
     border: none;
@@ -116,8 +116,26 @@ h1 {
 
     &:hover {
       background-color: #fff;
-      color: #007bff;
-      border: 1px solid #007bff;
+      color: #28a745;
+      border: 1px solid #28a745;
+    }
+  }
+
+  .updatePhim {
+    width: 95%;
+    padding: 5px 0;
+    border-radius: 5px;
+    background-color: #4267b3;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #fff;
+      color: #4267b3;
+      border: 1px solid #4267b3;
     }
   }
 }

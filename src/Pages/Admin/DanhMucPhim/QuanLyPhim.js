@@ -1,12 +1,14 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 // import { dataTable } from "./QuanLyPhimTableData";
 import { useDispatch, useSelector } from "react-redux";
 import {
   layDanhSachPhimApiAction,
+  layThongTinPhimApiAction,
   xoaPhimApiAction,
 } from "../../../Redux/actions/AdminAction/QuanLyPhimAction";
+import { history } from "../../../Util/history";
 
 export default function QuanLyPhim() {
   const { dsPhim } = useSelector((state) => state.QuanLyPhimReducer);
@@ -51,7 +53,9 @@ export default function QuanLyPhim() {
       render: (record, action) => {
         return (
           <>
-            <button className="edit">Sửa</button>
+            <button className="edit" onClick={() => handleEdit(action.maPhim)}>
+              Sửa
+            </button>
             <button
               className="delete"
               onClick={() => handleDelete(action.maPhim)}
@@ -80,13 +84,17 @@ export default function QuanLyPhim() {
   }, []);
 
   const handleDelete = (maPhim) => {
-    console.log(maPhim);
     dispatch(xoaPhimApiAction(maPhim));
+  };
+
+  const handleEdit = async (maPhim) => {
+    dispatch(await layThongTinPhimApiAction(maPhim));
+    history.push("/admin/themphim");
   };
 
   return (
     <div>
-      <h1>QUẢN LÝ PHIM</h1>
+      <h1>DANH SÁCH PHIM</h1>
       <Table columns={columns} dataSource={dsPhimData} />
     </div>
   );

@@ -1,6 +1,7 @@
 import Axios from "axios";
 import {
   LAY_DANH_SACH_PHIM,
+  LAY_THONG_TIN_PHIM,
   THEM_PHIM_MOI,
   XOA_PHIM,
 } from "../../constants/AdminConst/QuanLyPhimConst";
@@ -11,7 +12,7 @@ export const layDanhSachPhimApiAction = () => {
     try {
       let { data, status } = await Axios({
         url:
-          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
+          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07",
         method: "GET",
       });
       if (status === 200) {
@@ -27,12 +28,9 @@ export const layDanhSachPhimApiAction = () => {
 };
 
 export const themPhimMoiApiAction = (thongTin) => {
-  console.log(thongTin.get("tenPhim"));
-  console.log(thongTin.get("maPhim"));
-  console.log(thongTin.get("hinhAnh"));
   return async (dispatch) => {
     try {
-      let { data, status } = await Axios({
+      let { status } = await Axios({
         url:
           "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh",
         method: "POST",
@@ -50,10 +48,46 @@ export const themPhimMoiApiAction = (thongTin) => {
   };
 };
 
-export const xoaPhimApiAction = (maPhim) => {
+export const layThongTinPhimApiAction = (maPhim) => {
   return async (dispatch) => {
     try {
       let { data, status } = await Axios({
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}?maNhon=GP07`,
+        method: "GET",
+      });
+      if (status === 200) {
+        dispatch({
+          type: LAY_THONG_TIN_PHIM,
+          thongTinPhim: data,
+        });
+      }
+    } catch (err) {
+      noti.fire("Thông báo", err.data, "error");
+    }
+  };
+};
+
+export const updatePhimApiAction = (thongTin) => {
+  return async (dispatch) => {
+    try {
+      let status = await Axios({
+        url:
+          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload",
+        method: "POST",
+      });
+      if (status === 200) {
+        noti.fire("Thông báo", "Cập nhật phim thành công", "success");
+      }
+    } catch (e) {
+      noti.fire("Thông báo", "Cập nhật phim thất bại", "error");
+    }
+  };
+};
+
+export const xoaPhimApiAction = (maPhim) => {
+  return async (dispatch) => {
+    try {
+      let { status } = await Axios({
         url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
         method: "DELETE",
       });

@@ -13,7 +13,7 @@ import PhimDangChieu from "./Pages/PhimDangChieu";
 import PhimSapChieu from "./Pages/PhimSapChieu";
 import { AdminTemplate } from "./Templates/AdminTemplate";
 import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
-import QuanLyNguoiDung from "./Pages/Admin/QuanLyNguoiDung";
+import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
 import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
 
 function App() {

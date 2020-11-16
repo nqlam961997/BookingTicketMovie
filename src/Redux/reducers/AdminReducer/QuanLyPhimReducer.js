@@ -1,13 +1,24 @@
-import { LAY_DANH_SACH_PHIM } from "../../constants/AdminConst/QuanLyPhimConst";
+import {
+  LAY_DANH_SACH_PHIM,
+  LAY_THONG_TIN_PHIM,
+} from "../../constants/AdminConst/QuanLyPhimConst";
 
 const initialState = {
   dsPhim: [],
+  thongTinPhim: {},
+  updateFilm: false,
 };
 
 export const QuanLyPhimReducer = (state = initialState, action) => {
   switch (action.type) {
     case LAY_DANH_SACH_PHIM: {
       state.dsPhim = action.dsPhim;
+      return { ...state };
+    }
+
+    case LAY_THONG_TIN_PHIM: {
+      state.thongTinPhim = action.thongTinPhim;
+      state.updateFilm = true;
       return { ...state };
     }
 
