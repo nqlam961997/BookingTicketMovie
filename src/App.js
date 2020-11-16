@@ -11,6 +11,7 @@ import DangKy from "./Components/DangKy/DangKy";
 import DangNhap from "./Components/DangNhap/DangNhap";
 import PhimDangChieu from "./Pages/PhimDangChieu";
 import PhimSapChieu from "./Pages/PhimSapChieu";
+import ThongTinTaiKhoan from "./Pages/ThongTinTaiKhoan";
 
 function App() {
   return (
@@ -20,10 +21,15 @@ function App() {
         <HomeTemplate exact path="/" Component={TrangChu} />
         <HomeTemplate exact path="/lienhe" Component={LienHe} />
         <HomeTemplate exact path="/tintuc" Component={TinTuc} />
+        <HomeTemplate
+          exact
+          path="/thongtintaikhoan"
+          Component={ThongTinTaiKhoan}
+        />
         <UserTemplate exact path="/dangky" Component={DangKy} />
         <UserTemplate exact path="/dangnhap" Component={DangNhap} />
-        <UserTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
-        <UserTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
+        <HomeTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
+        <HomeTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
       </Switch>
     </>
   );
