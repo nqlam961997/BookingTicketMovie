@@ -19,12 +19,15 @@ export const UserTemplate = (props) => {
           <div>
             <div>
               <Header />
+              <div className="main-container">
               <div className="main">
                 <div className="layout-dangnhap">
                   <img src="img/bg-dangki.jpg"></img>
                 </div>
                 <Component {...propsRoute} />
               </div>
+              </div>
+           
             </div>
           </div>
         );

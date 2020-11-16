@@ -35,7 +35,7 @@ export default function Header(props) {
     <nav className="navbar">
       <NavLink to="/" className="navbar-logo">
         <p>
-          <span>C</span>YBERSOFT
+          <span>C</span>YBERMOVIE
         </p>
       </NavLink>
       <div className="menu-icon" onClick={handleClick}>
@@ -70,11 +70,21 @@ export default function Header(props) {
           <li className="nav-item">
             {userLogin.taiKhoan ? (
               <NavLink
-                to="/dangnhap"
+                to="/thongtintaikhoan"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <span>XIN CHÀO, {userLogin.taiKhoan}</span>
+                <span>
+                  XIN CHÀO, {userLogin.taiKhoan} !{" "}
+                  <NavLink
+                    to="/"
+                    remove={userLogin}
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    THOÁT
+                  </NavLink>
+                </span>
               </NavLink>
             ) : (
               <NavLink

@@ -1,7 +1,3 @@
-body {
-    height: 200vh;
-}
-
 .navbar {
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
     height: 80px;
@@ -28,7 +24,7 @@ body {
         span {
             display: inline-block;
             padding-right: 1px;
-            -moz-animation: animate 3s linear infinite alternate;
+            animation: animate 3s linear infinite alternate;
         }
     }
     .nav-menu {
@@ -64,7 +60,7 @@ body {
 
 @keyframes animate {
     100% {
-        -moz-transform: rotateY(360deg);
+        transform: rotateY(360deg);
     }
 }
 
@@ -103,10 +99,6 @@ body {
 }
 
 @media screen and (max-width: 960px) {
-    .NavbarItems {
-        position: relative;
-    }
-
     .navbar {
         .navbar-logo {
             position: absolute;
