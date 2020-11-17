@@ -7,11 +7,11 @@ import {
   layDanhSachPhimApiAction,
   layThongTinPhimApiAction,
   xoaPhimApiAction,
-} from "../../../Redux/actions/AdminAction/QuanLyPhimAction";
+} from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
 import { history } from "../../../Util/history";
 
 export default function QuanLyPhim() {
-  const { dsPhim } = useSelector((state) => state.QuanLyPhimReducer);
+  const { dsPhim } = useSelector((state) => state.QuanLyPhimAdminReducer);
   const dispatch = useDispatch();
 
   const columns = [

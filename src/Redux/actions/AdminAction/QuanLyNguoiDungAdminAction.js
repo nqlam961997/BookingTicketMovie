@@ -1,6 +1,6 @@
 import Axios from "axios";
 import noti from "sweetalert2";
-import { LAY_DANH_SACH_NGUOI_DUNG } from "../../constants/AdminConst/QuanLyNguoiDungConst";
+import { LAY_DANH_SACH_NGUOI_DUNG } from "../../constants/AdminConst/QuanLyNguoiDungAdminConst";
 
 export const layDanhSachNguoiDungApiAction = () => {
   return async (dispatch) => {
