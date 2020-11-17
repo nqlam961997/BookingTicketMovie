@@ -52,7 +52,7 @@ export const layThongTinPhimApiAction = (maPhim) => {
   return async (dispatch) => {
     try {
       let { data, status } = await Axios({
-        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}?maNhon=GP07`,
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`,
         method: "GET",
       });
       if (status === 200) {
