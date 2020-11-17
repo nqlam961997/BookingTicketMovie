@@ -15,6 +15,7 @@ import { AdminTemplate } from "./Templates/AdminTemplate";
 import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
 import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
 import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
+import ThongTinTaiKhoan from "./Pages/ThongTinTaiKhoan";
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
         <HomeTemplate exact path="/" Component={TrangChu} />
         <HomeTemplate exact path="/lienhe" Component={LienHe} />
         <HomeTemplate exact path="/tintuc" Component={TinTuc} />
+        <HomeTemplate
+          exact
+          path="/thongtintaikhoan"
+          Component={ThongTinTaiKhoan}
+        />
         <UserTemplate exact path="/dangky" Component={DangKy} />
         <UserTemplate exact path="/dangnhap" Component={DangNhap} />
         <UserTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
@@ -36,6 +42,8 @@ function App() {
           path="/admin/quanlynguoidung"
           Component={QuanLyNguoiDung}
         />
+        <HomeTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
+        <HomeTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
       </Switch>
     </>
   );

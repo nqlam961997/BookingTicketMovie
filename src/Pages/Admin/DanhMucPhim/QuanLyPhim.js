@@ -5,7 +5,7 @@ import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
   layDanhSachPhimApiAction,
-  layThongTinPhimApiAction,
+  layThongTinPhimAdminApiAction,
   xoaPhimApiAction,
 } from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
 import { history } from "../../../Util/history";
@@ -79,16 +79,16 @@ export default function QuanLyPhim() {
     };
   });
 
-  useEffect(async () => {
-    dispatch(await layDanhSachPhimApiAction());
-  }, []);
+  useEffect(() => {
+    dispatch(layDanhSachPhimApiAction());
+  });
 
   const handleDelete = (maPhim) => {
     dispatch(xoaPhimApiAction(maPhim));
   };
 
   const handleEdit = async (maPhim) => {
-    dispatch(await layThongTinPhimApiAction(maPhim));
+    dispatch(await layThongTinPhimAdminApiAction(maPhim));
     history.push("/admin/themphim");
   };
 

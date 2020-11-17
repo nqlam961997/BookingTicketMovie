@@ -5,6 +5,8 @@ import {
   themPhimMoiApiAction,
   updatePhimApiAction,
 } from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
+import { CANCLE_UPDATE } from "../../../Redux/constants/AdminConst/QuanLyPhimAdminConst";
+import { history } from "../../../Util/history";
 
 export default function ThemPhim() {
   const [state, setState] = useState({
@@ -51,6 +53,13 @@ export default function ThemPhim() {
     dispatch(await updatePhimApiAction(form_data));
   };
 
+  const handleCancle = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: CANCLE_UPDATE,
+    });
+  };
+
   return (
     <div>
       <h1>THÊM PHIM</h1>
@@ -60,7 +69,7 @@ export default function ThemPhim() {
             <p>Mã nhóm</p>
             <input
               name="maNhom"
-              value="GP01"
+              value="GP07"
               onChange={handleChange}
               disabled
             />
@@ -109,9 +118,14 @@ export default function ThemPhim() {
         </div>
 
         {updateFilm ? (
-          <button className="updatePhim" onClick={handleUpdate}>
-            Cập nhật phim
-          </button>
+          <>
+            <button className="updatePhim" onClick={handleUpdate}>
+              Cập nhật phim
+            </button>{" "}
+            <button className="cancle" onClick={handleCancle}>
+              Bỏ qua
+            </button>
+          </>
         ) : (
           <button className="themPhim" onClick={handleAdd}>
             Thêm phim
