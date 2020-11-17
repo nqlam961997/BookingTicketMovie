@@ -4,7 +4,7 @@ import {
   LAY_THONG_TIN_PHIM,
   THEM_PHIM_MOI,
   XOA_PHIM,
-} from "../../constants/AdminConst/QuanLyPhimConst";
+} from "../../constants/AdminConst/QuanLyPhimAdminConst";
 import noti from "sweetalert2";
 
 export const layDanhSachPhimApiAction = () => {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   themPhimMoiApiAction,
   updatePhimApiAction,
-} from "../../../Redux/actions/AdminAction/QuanLyPhimAction";
+} from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
 
 export default function ThemPhim() {
   const [state, setState] = useState({
@@ -19,7 +19,7 @@ export default function ThemPhim() {
   const dispatch = useDispatch();
 
   const { thongTinPhim, updateFilm } = useSelector(
-    (state) => state.QuanLyPhimReducer
+    (state) => state.QuanLyPhimAdminReducer
   );
 
   const handleChange = (e) => {

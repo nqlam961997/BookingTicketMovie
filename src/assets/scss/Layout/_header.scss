@@ -1,7 +1,3 @@
-body {
-    height: 200vh;
-}
-
 .navbar {
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
     height: 80px;
@@ -10,9 +6,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: fixed;
-    z-index: 9999;
 
+    // position: fixed;
+    // z-index: 9999;
     .menu-icon {
         display: none;
 
@@ -33,7 +29,7 @@ body {
             display: inline-block;
             padding-right: 1px;
             -webkit-animation: animate 3s linear infinite alternate;
-            animation: animate 3s linear infinite alternate;
+                    animation: animate 3s linear infinite alternate;
         }
     }
 
@@ -86,43 +82,45 @@ body {
     }
 }
 
-.dropdown-menu {
-    width: 200px;
-    position: absolute;
-    top: 80px;
-    list-style: none;
-    text-align: start;
-    border: 1px solid #fff;
-    padding: 3px;
+.navbar {
+    .nav-menu {
+        .nav-item {
+            .dropdown-menu {
+                width: 200px;
+                position: absolute;
+                top: 80px;
+                list-style: none;
+                text-align: start;
+                padding: 3px;
+                z-index: 10;
 
-    li {
-        background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-        cursor: pointer;
+                li {
+                    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+                    cursor: pointer;
 
-        &:hover {
-            background: #f2f2f2;
-        }
-    }
+                    &:hover {
+                        background: #f2f2f2;
+                    }
+                }
 
-    .dropdown-link {
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: #fff;
-        padding: 16px;
+                .dropdown-link {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                    color: #fff;
+                    padding: 16px;
 
-        &:hover {
-            color: #000;
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
         }
     }
 }
 
 @media screen and (max-width: 960px) {
-    .NavbarItems {
-        position: relative;
-    }
-
     .navbar {
         .navbar-logo {
             position: absolute;
@@ -163,7 +161,7 @@ body {
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 1;
+        z-index: 10;
 
         .nav-links {
             text-align: center;

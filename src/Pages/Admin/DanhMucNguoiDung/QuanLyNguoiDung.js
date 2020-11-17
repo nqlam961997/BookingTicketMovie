@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachNguoiDungApiAction } from "../../../Redux/actions/AdminAction/QuanLyNguoiDungAction";
+import { layDanhSachNguoiDungApiAction } from "../../../Redux/actions/AdminAction/QuanLyNguoiDungAdminAction";
 
 export default function QuanLyNguoiDung() {
   const dispatch = useDispatch();
@@ -61,7 +61,9 @@ export default function QuanLyNguoiDung() {
     dispatch(await layDanhSachNguoiDungApiAction());
   }, []);
 
-  const { dsNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { dsNguoiDung } = useSelector(
+    (state) => state.QuanLyNguoiDungAdminReducer
+  );
   const dsNguoiDungData = dsNguoiDung.map((nguoiDung, i) => {
     return {
       key: i,
