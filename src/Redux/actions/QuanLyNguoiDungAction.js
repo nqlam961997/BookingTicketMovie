@@ -12,11 +12,11 @@ export const dangNhapAction = async (userLogin) => {
   return async (dispatch) => {
     try {
       let result = await Axios({
-        url: DOMAIN + "/api/QuanLyNguoiDung/DangNhap",
+        url: DOMAIN + "/api/QuanLyNguoiDung/DangNhap?maNhom=GP07",
         method: "POST",
         data: userLogin,
       });
-      console.log(result.data);
+      console.log(result.data.maLoaiNguoiDung);
       localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
       localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
       swal.fire("Thông báo", "Đăng nhập thành công!", "success");
@@ -24,7 +24,11 @@ export const dangNhapAction = async (userLogin) => {
         type: DANG_NHAP,
         userLogin: userLogin,
       });
-      history.push("/thongtintaikhoan");
+      if (result.data.maLoaiNguoiDung == "QuanTri") {
+        history.push("/admin/quanlyphim");
+      } else {
+        history.push("/thongtintaikhoan");
+      }
     } catch (err) {
       swal.fire("Thông báo", "Đăng nhập thất bại!", "error");
       console.log(err);

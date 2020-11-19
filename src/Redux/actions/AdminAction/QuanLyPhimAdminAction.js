@@ -6,13 +6,14 @@ import {
   XOA_PHIM,
 } from "../../constants/AdminConst/QuanLyPhimAdminConst";
 import noti from "sweetalert2";
+import { ACCESSTOKEN, DOMAIN } from "../../../Util/Config";
+import { history } from "../../../Util/history";
 
 export const layDanhSachPhimApiAction = () => {
   return async (dispatch) => {
     try {
       let { data, status } = await Axios({
-        url:
-          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07",
+        url: DOMAIN + "/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07",
         method: "GET",
       });
       if (status === 200) {
@@ -31,8 +32,7 @@ export const themPhimMoiApiAction = (thongTin) => {
   return async (dispatch) => {
     try {
       let { status } = await Axios({
-        url:
-          "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh",
+        url: DOMAIN + "/api/QuanLyPhim/ThemPhimUploadHinh",
         method: "POST",
         data: thongTin,
       });
@@ -41,6 +41,7 @@ export const themPhimMoiApiAction = (thongTin) => {
           type: THEM_PHIM_MOI,
         });
         noti.fire("Thông báo", "Thêm phim thành công", "success");
+        history.push("/admin/quanlyphim");
       }
     } catch (e) {
       noti.fire("Thông báo", "Thêm phim không thành công", "error");
@@ -48,11 +49,11 @@ export const themPhimMoiApiAction = (thongTin) => {
   };
 };
 
-export const layThongTinPhimApiAction = (maPhim) => {
+export const layThongTinPhimAdminApiAction = (maPhim) => {
   return async (dispatch) => {
     try {
       let { data, status } = await Axios({
-        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`,
+        url: DOMAIN + `/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`,
         method: "GET",
       });
       if (status === 200) {
@@ -68,34 +69,37 @@ export const layThongTinPhimApiAction = (maPhim) => {
 };
 
 export const updatePhimApiAction = (thongTin) => {
+  console.log(typeof thongTin.get("hinhAnh"));
   return async (dispatch) => {
     try {
-      let status = await Axios({
+      let { data, status } = await Axios({
         url:
           "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload",
         method: "POST",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+        },
+        data: thongTin,
       });
-      if (status === 200) {
-        noti.fire("Thông báo", "Cập nhật phim thành công", "success");
-      }
+      noti.fire("Thông báo", "Cập nhật phim thành công", "success");
+      history.push("/admin/quanlyphim");
     } catch (e) {
       noti.fire("Thông báo", "Cập nhật phim thất bại", "error");
+      console.log(e.response);
     }
   };
 };
 
 export const xoaPhimApiAction = (maPhim) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     try {
-      let { status } = await Axios({
-        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+      let { status } = Axios({
+        url: DOMAIN + `/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
         method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+        },
       });
-      if (status === 200) {
-        dispatch({
-          type: XOA_PHIM,
-        });
-      }
       noti.fire("Thông báo", "Xóa phim thành công", "success");
     } catch (err) {
       noti.fire("Thông báo", "Xóa phim không thành công", "error");

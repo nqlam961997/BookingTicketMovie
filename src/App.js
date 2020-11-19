@@ -13,8 +13,10 @@ import PhimDangChieu from "./Pages/PhimDangChieu";
 import PhimSapChieu from "./Pages/PhimSapChieu";
 import ThongTinTaiKhoan from "./Pages/ThongTinTaiKhoan";
 import { AdminTemplate } from "./Templates/AdminTemplate";
+
 import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
 import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
+import EditPhim from "./Pages/Admin/DanhMucPhim/EditPhim";
 import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
 
 function App() {
@@ -30,10 +32,14 @@ function App() {
           path="/thongtintaikhoan"
           Component={ThongTinTaiKhoan}
         />
-        <UserTemplate exact path="/dangky" Component={DangKy} />
-        <UserTemplate exact path="/dangnhap" Component={DangNhap} />
         <HomeTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
         <HomeTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
+
+        <UserTemplate exact path="/dangky" Component={DangKy} />
+        <UserTemplate exact path="/dangnhap" Component={DangNhap} />
+        <UserTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
+        <UserTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
+
         <AdminTemplate exact path="/admin/quanlyphim" Component={QuanLyPhim} />
         <AdminTemplate exact path="/admin/themphim" Component={ThemPhim} />
         <AdminTemplate
@@ -41,6 +47,7 @@ function App() {
           path="/admin/quanlynguoidung"
           Component={QuanLyNguoiDung}
         />
+        <AdminTemplate exact path="/admin/editphim" Component={EditPhim} />
       </Switch>
     </>
   );
