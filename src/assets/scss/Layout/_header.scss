@@ -1,13 +1,14 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    position: absolute;
     height: 80px;
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    // position: fixed;
-    // z-index: 9999;
+    padding: 40px 100px;
+    z-index: 1000;
+    color: #fff;
     .menu-icon {
         display: none;
         .fa-bars {
@@ -16,15 +17,17 @@
     }
     .navbar-logo {
         color: #fff;
-        justify-self: start;
         margin-left: 20px;
         cursor: pointer;
         text-decoration: none;
-        font-size: 2rem;
-        span {
-            display: inline-block;
-            padding-right: 1px;
-            animation: animate 3s linear infinite alternate;
+        font-size: 1.85rem;
+        p {
+            display: flex;
+            span {
+                display: inline-block;
+                padding-right: 1px;
+                animation: animate 3s linear infinite alternate;
+            }
         }
     }
     .nav-menu {
@@ -52,6 +55,29 @@
                     background-color: #f2f2f2;
                     border-radius: 4px;
                     transition: all 0.2s ease-out;
+                }
+            }
+        }
+    }
+}
+
+nav.sticky{
+    position: fixed;
+    z-index: 9999;
+    padding: 5px 100px;
+    background-color: #fff;
+    color: #000;
+    transition: all .5s;
+    .navbar-logo{
+        color: #000;
+    }
+    .nav-menu{
+        .nav-item{
+            .nav-links{
+                color: #000;
+                &:hover{
+                    color: #fff;
+                    background-color:  rgb(83, 78, 78);
                 }
             }
         }
@@ -98,7 +124,7 @@
     }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
     .navbar {
         .navbar-logo {
             position: absolute;
@@ -128,6 +154,12 @@
             left: -100%;
             opacity: 1;
             transition: all 0.5s ease;
+            // .nav-item{
+            //     .dropdown-menu{
+            //         width: 100%;
+            //         top: 0;
+            //     }
+            // }
         }
     }
     .nav-menu.active {
@@ -135,7 +167,7 @@
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 10;
+        z-index: 9;
         .nav-links {
             text-align: center;
             padding: 2rem;
@@ -144,6 +176,18 @@
             &:hover {
                 background-color: #f2f2f2;
                 border-radius: 0;
+            }
+        }
+    }
+    .navbar {
+        .nav-menu {
+            .nav-item {
+                .dropdown-menu {
+                    width: 100%;
+                    .dropdown-link {
+                        text-align: center;
+                    }
+                }
             }
         }
     }

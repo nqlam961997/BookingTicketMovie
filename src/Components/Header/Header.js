@@ -13,10 +13,11 @@ export default function Header(props) {
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
-      setDropdown(false);
+      setDropdown(true);
     } else {
       setDropdown(true);
     }
+    console.log(dropdown);
   };
 
   const onMouseLeave = () => {
@@ -26,10 +27,18 @@ export default function Header(props) {
       setDropdown(false);
     }
   };
-
+  
   const userLogin = useSelector(
     (state) => state.QuanLyNguoiDungReducer.userLogin
   );
+
+  window.addEventListener("scroll", () => {
+    let nav = document.querySelector("nav");
+    nav.classList.toggle("sticky", window.scrollY > 0);
+    if(window.innerWidth < 960){
+      nav.classList.remove('sticky');
+    }
+  });
 
   return (
     <nav className="navbar">
