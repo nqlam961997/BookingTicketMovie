@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  themPhimMoiApiAction,
-  updatePhimApiAction,
-} from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
-import { CANCLE_UPDATE } from "../../../Redux/constants/AdminConst/QuanLyPhimAdminConst";
-import { history } from "../../../Util/history";
+import { themPhimMoiApiAction } from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
+import * as yup from "yup";
 
 export default function ThemPhim() {
   const [state, setState] = useState({
@@ -17,6 +13,8 @@ export default function ThemPhim() {
     moTa: "",
     maNhom: "GP07",
   });
+
+  // const [valid, setValid] = useState();
 
   const dispatch = useDispatch();
 
@@ -33,6 +31,10 @@ export default function ThemPhim() {
     }
   };
 
+  const validateForm = yup.object().shape({
+    tenPhim: yup.string().required("Tên phim không được để trống"),
+  });
+
   const handleAdd = async (e) => {
     e.preventDefault();
     let form_data = new FormData();
@@ -42,15 +44,6 @@ export default function ThemPhim() {
     // console.log("hinhanh ->", form_data.get("hinhAnh"));
     dispatch(await themPhimMoiApiAction(form_data));
   };
-
-  // const handleUpdate = async (e) => {
-  //   e.preventDefault();
-  //   let form_data = new FormData();
-  //   for (let key in state) {
-  //     form_data.append(key, state[key]);
-  //   }
-  //   dispatch(await updatePhimApiAction(form_data));
-  // };
 
   return (
     <div>

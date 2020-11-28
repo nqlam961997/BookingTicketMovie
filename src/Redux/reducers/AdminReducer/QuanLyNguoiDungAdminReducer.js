@@ -1,4 +1,4 @@
-import { LAY_DANH_SACH_NGUOI_DUNG } from "../../constants/AdminConst/QuanLyNguoiDungAdminConst";
+import { LAY_DANH_SACH_NGUOI_DUNG } from "../../const/AdminConst/QuanLyNguoiDungAdminConst";
 
 const initialState = {
   dsNguoiDung: [],

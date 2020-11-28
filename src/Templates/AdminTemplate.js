@@ -79,7 +79,11 @@ export const AdminTemplate = (props) => {
                         Danh sach người dùng
                       </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="8">Thêm người dùng</Menu.Item>
+                    <Menu.Item key="8">
+                      <NavLink exact to="/admin/themnguoidung">
+                        Thêm người dùng
+                      </NavLink>
+                    </Menu.Item>
                   </SubMenu>
                   <Menu.Item key="9" icon={<FileOutlined />}>
                     Files

@@ -4,7 +4,7 @@ import {
   LAY_THONG_TIN_PHIM,
   THEM_PHIM_MOI,
   XOA_PHIM,
-} from "../../constants/AdminConst/QuanLyPhimAdminConst";
+} from "../../const/AdminConst/QuanLyPhimAdminConst";
 import noti from "sweetalert2";
 import { ACCESSTOKEN, DOMAIN } from "../../../Util/Config";
 import { history } from "../../../Util/history";

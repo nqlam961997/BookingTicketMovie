@@ -5,7 +5,7 @@ import {
   themPhimMoiApiAction,
   updatePhimApiAction,
 } from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
-import { CANCLE_UPDATE } from "../../../Redux/constants/AdminConst/QuanLyPhimAdminConst";
+import { CANCLE_UPDATE } from "../../../Redux/const/AdminConst/QuanLyPhimAdminConst";
 import { history } from "../../../Util/history";
 
 export default function EditPhim() {

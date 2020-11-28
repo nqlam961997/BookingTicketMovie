@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachNguoiDungApiAction } from "../../../Redux/actions/AdminAction/QuanLyNguoiDungAdminAction";
+import {
+  layDanhSachNguoiDungApiAction,
+  xoaNguoiDung,
+} from "../../../Redux/actions/AdminAction/QuanLyNguoiDungAdminAction";
 
 export default function QuanLyNguoiDung() {
   const dispatch = useDispatch();
@@ -50,16 +53,17 @@ export default function QuanLyNguoiDung() {
         return (
           <>
             <button className="edit">Sửa</button>
-            <button className="delete">Xóa</button>
+            <button
+              className="delete"
+              onClick={() => handleDelete(action.taiKhoan)}
+            >
+              Xóa
+            </button>
           </>
         );
       },
     },
   ];
-
-  useEffect(async () => {
-    dispatch(await layDanhSachNguoiDungApiAction());
-  }, []);
 
   const { dsNguoiDung } = useSelector(
     (state) => state.QuanLyNguoiDungAdminReducer
@@ -75,6 +79,15 @@ export default function QuanLyNguoiDung() {
       maLoaiNguoiDung: nguoiDung.maLoaiNguoiDung,
     };
   });
+
+  useEffect(async () => {
+    dispatch(await layDanhSachNguoiDungApiAction());
+  }, [dsNguoiDung]);
+
+  const handleDelete = async (taiKhoan) => {
+    // console.log(taiKhoan);
+    dispatch(await xoaNguoiDung(taiKhoan));
+  };
 
   return (
     <>

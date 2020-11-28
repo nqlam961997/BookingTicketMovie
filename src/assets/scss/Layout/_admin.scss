@@ -91,8 +91,6 @@ h1 {
         border: none;
       }
     }
-
-
   }
 
   .upHinh {
@@ -154,6 +152,42 @@ h1 {
       background-color: #fff;
       color: rgb(255, 34, 34);
       border: 1px solid rgb(255, 34, 34);
+    }
+  }
+
+  .text-danger {
+    color: red;
+  }
+}
+
+
+.userForm {
+  width: 80%;
+
+  select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+  }
+
+  .themNguoiDung {
+    width: 100%;
+    padding: 5px 0;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #fff;
+      color: #28a745;
+      border: 1px solid #28a745;
     }
   }
 }

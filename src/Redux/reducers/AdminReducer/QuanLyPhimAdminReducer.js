@@ -2,7 +2,7 @@ import {
   CANCLE_UPDATE,
   LAY_DANH_SACH_PHIM,
   LAY_THONG_TIN_PHIM,
-} from "../../constants/AdminConst/QuanLyPhimAdminConst";
+} from "../../const/AdminConst/QuanLyPhimAdminConst";
 
 const initialState = {
   dsPhim: [],

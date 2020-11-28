@@ -18,6 +18,7 @@ import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
 import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
 import EditPhim from "./Pages/Admin/DanhMucPhim/EditPhim";
 import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
+import ThemNguoiDung from "./Pages/Admin/DanhMucNguoiDung/ThemNguoiDung";
 
 function App() {
   return (
@@ -42,12 +43,17 @@ function App() {
 
         <AdminTemplate exact path="/admin/quanlyphim" Component={QuanLyPhim} />
         <AdminTemplate exact path="/admin/themphim" Component={ThemPhim} />
+        <AdminTemplate exact path="/admin/editphim" Component={EditPhim} />
         <AdminTemplate
           exact
           path="/admin/quanlynguoidung"
           Component={QuanLyNguoiDung}
         />
-        <AdminTemplate exact path="/admin/editphim" Component={EditPhim} />
+        <AdminTemplate
+          exact
+          path="/admin/themnguoidung"
+          Component={ThemNguoiDung}
+        />
       </Switch>
     </>
   );
