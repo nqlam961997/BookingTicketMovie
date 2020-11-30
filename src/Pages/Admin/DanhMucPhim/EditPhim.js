@@ -145,10 +145,10 @@ export default function EditPhim() {
         </div>
 
         <>
-          <button className="updatePhim" onClick={handleUpdate}>
+          <button className="update" onClick={handleUpdate}>
             Cập nhật phim
           </button>{" "}
-          <button className="cancle" onClick={handleCancle}>
+          <button className="cancel" onClick={handleCancle}>
             Hủy bỏ
           </button>
         </>

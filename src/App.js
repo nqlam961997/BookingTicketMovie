@@ -19,6 +19,7 @@ import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
 import EditPhim from "./Pages/Admin/DanhMucPhim/EditPhim";
 import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
 import ThemNguoiDung from "./Pages/Admin/DanhMucNguoiDung/ThemNguoiDung";
+import EditUser from "./Pages/Admin/DanhMucNguoiDung/EditUser";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           path="/admin/themnguoidung"
           Component={ThemNguoiDung}
         />
+        <AdminTemplate exact path="/admin/chinhsuauser" Component={EditUser} />
       </Switch>
     </>
   );

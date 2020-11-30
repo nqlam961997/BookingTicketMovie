@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
   layDanhSachNguoiDungApiAction,
+  layThongTinNguoiDung,
   xoaNguoiDung,
 } from "../../../Redux/actions/AdminAction/QuanLyNguoiDungAdminAction";
+import { history } from "../../../Util/history";
 
 export default function QuanLyNguoiDung() {
   const dispatch = useDispatch();
@@ -52,7 +54,12 @@ export default function QuanLyNguoiDung() {
       render: (record, action) => {
         return (
           <>
-            <button className="edit">Sửa</button>
+            <button
+              className="edit"
+              onClick={() => handleUser(action.taiKhoan)}
+            >
+              Sửa
+            </button>
             <button
               className="delete"
               onClick={() => handleDelete(action.taiKhoan)}
@@ -80,13 +87,21 @@ export default function QuanLyNguoiDung() {
     };
   });
 
+  const [user, setUser] = useState({ taiKhoan: "" });
+
   useEffect(async () => {
     dispatch(await layDanhSachNguoiDungApiAction());
-  }, [dsNguoiDung]);
+  }, []);
 
   const handleDelete = async (taiKhoan) => {
-    // console.log(taiKhoan);
     dispatch(await xoaNguoiDung(taiKhoan));
+  };
+
+  const handleUser = async (tk) => {
+    setUser({ taiKhoan: tk });
+    console.log("tai khoan handleUser ->", user);
+    // dispatch(await layThongTinNguoiDung(user));
+    // history.push("/admin/chinhsuauser");
   };
 
   return (
