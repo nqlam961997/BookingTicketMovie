@@ -1,5 +1,5 @@
 .navbar {
-    position: absolute;
+    // position: absolute;
     height: 80px;
     display: flex;
     width: 100%;
@@ -8,15 +8,15 @@
     font-size: 1.2rem;
     padding: 40px 100px;
     z-index: 1000;
-    color: #fff;
+    color: #000;
     .menu-icon {
         display: none;
         .fa-bars {
-            color: #fff;
+            color: #000;
         }
     }
     .navbar-logo {
-        color: #fff;
+        color: #000;
         margin-left: 20px;
         cursor: pointer;
         text-decoration: none;
@@ -24,7 +24,7 @@
         p {
             display: flex;
             span {
-                display: inline-block;
+                // display: block;
                 padding-right: 1px;
                 animation: animate 3s linear infinite alternate;
             }
@@ -47,7 +47,7 @@
                 display: none;
             }
             .nav-links {
-                color: white;
+                color: #000;
                 text-decoration: none;
                 padding: 0.5rem 1rem;
                 &:hover {
@@ -61,12 +61,13 @@
     }
 }
 
-nav.sticky{
+.sticky{
     position: fixed;
     z-index: 9999;
     padding: 5px 100px;
     background-color: #fff;
     color: #000;
+    opacity: 0.7;
     transition: all .5s;
     .navbar-logo{
         color: #000;
@@ -74,9 +75,9 @@ nav.sticky{
     .nav-menu{
         .nav-item{
             .nav-links{
-                color: #000;
+                color: #fff;
                 &:hover{
-                    color: #fff;
+                    color: #000;
                     background-color:  rgb(83, 78, 78);
                 }
             }
@@ -141,7 +142,7 @@ nav.sticky{
             font-size: 1.8rem;
             cursor: pointer;
             .fa-times {
-                color: #fff;
+                color: #000;
                 font-size: 2rem;
             }
         }
@@ -154,12 +155,6 @@ nav.sticky{
             left: -100%;
             opacity: 1;
             transition: all 0.5s ease;
-            // .nav-item{
-            //     .dropdown-menu{
-            //         width: 100%;
-            //         top: 0;
-            //     }
-            // }
         }
     }
     .nav-menu.active {
@@ -173,6 +168,7 @@ nav.sticky{
             padding: 2rem;
             width: 100%;
             display: table;
+            color: #fff;
             &:hover {
                 background-color: #f2f2f2;
                 border-radius: 0;
@@ -180,6 +176,7 @@ nav.sticky{
         }
     }
     .navbar {
+        color: #fff;
         .nav-menu {
             .nav-item {
                 .dropdown-menu {

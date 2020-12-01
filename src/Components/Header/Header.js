@@ -27,16 +27,18 @@ export default function Header(props) {
       setDropdown(false);
     }
   };
-  
+
   const userLogin = useSelector(
     (state) => state.QuanLyNguoiDungReducer.userLogin
   );
 
   window.addEventListener("scroll", () => {
     let nav = document.querySelector("nav");
-    nav.classList.toggle("sticky", window.scrollY > 0);
-    if(window.innerWidth < 960){
-      nav.classList.remove('sticky');
+    if (nav) {
+      nav.classList.toggle("sticky", window.scrollY > 0);
+    }
+    if (window.innerWidth < 960) {
+      nav.classList.remove("sticky");
     }
   });
 
@@ -57,15 +59,15 @@ export default function Header(props) {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <NavLink to="#" className="nav-links" onClick={closeMobileMenu}>
+            <a href="#phimDangChieu" className="nav-links" onClick={closeMobileMenu}>
               PHIM <i className="fas fa-caret-down"></i>
-            </NavLink>
+            </a>
             {dropdown && <Dropdown />}
           </li>
           <li className="nav-item">
-            <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
+            <a href="#cumRap" className="nav-links" onClick={closeMobileMenu}>
               CỤM RẠP
-            </NavLink>
+            </a>
           </li>
           <li className="nav-item">
             <NavLink
