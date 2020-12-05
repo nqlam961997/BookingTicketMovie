@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
 import { themPhimMoiApiAction } from "../../../Redux/actions/AdminAction/QuanLyPhimAdminAction";
-import * as yup from "yup";
 
 export default function ThemPhim() {
   const [state, setState] = useState({
@@ -30,10 +29,6 @@ export default function ThemPhim() {
       setState({ ...state, [e.target.name]: e.target.value });
     }
   };
-
-  const validateForm = yup.object().shape({
-    tenPhim: yup.string().required("Tên phim không được để trống"),
-  });
 
   const handleAdd = async (e) => {
     e.preventDefault();

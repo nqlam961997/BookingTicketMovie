@@ -87,8 +87,6 @@ export default function QuanLyNguoiDung() {
     };
   });
 
-  const [user, setUser] = useState({ taiKhoan: "" });
-
   useEffect(async () => {
     dispatch(await layDanhSachNguoiDungApiAction());
   }, []);
@@ -98,10 +96,11 @@ export default function QuanLyNguoiDung() {
   };
 
   const handleUser = async (tk) => {
-    setUser({ taiKhoan: tk });
+    let user = {};
+    user.taiKhoan = tk;
     console.log("tai khoan handleUser ->", user);
-    // dispatch(await layThongTinNguoiDung(user));
-    // history.push("/admin/chinhsuauser");
+    dispatch(await layThongTinNguoiDung(user));
+    history.push("/admin/chinhsuauser");
   };
 
   return (

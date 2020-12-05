@@ -86,3 +86,22 @@ export const layThongTinNguoiDung = (thongTin) => {
     }
   };
 };
+
+export const capNhatUserAdminActionApi = (user) => {
+  return async (dispatch) => {
+    try {
+      let { data, status } = await Axios({
+        url: DOMAIN + "/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+        },
+        data: user,
+      });
+      noti.fire("Thông báo", "Cập nhật thành công", "success");
+    } catch (err) {
+      console.log(err.response.data);
+      noti.fire("Thông báo", "Cập nhật không thành công", "error");
+    }
+  };
+};
