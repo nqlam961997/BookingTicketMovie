@@ -5,6 +5,7 @@ import {
   DANG_NHAP,
   DANG_KI,
   HANDLE_CHANGE_INPUT,
+  LAY_THONG_TIN_USER,
 } from "../const/QuanLyNguoiDungConst";
 import swal from "sweetalert2";
 
@@ -27,7 +28,7 @@ export const dangNhapAction = async (userLogin) => {
       if (result.data.maLoaiNguoiDung == "QuanTri") {
         history.push("/admin/quanlyphim");
       } else {
-        history.push("/thongtintaikhoan");
+        history.push("/thongtintaikhoan/profile");
       }
     } catch (err) {
       swal.fire("Thông báo", "Đăng nhập thất bại!", "error");
@@ -57,6 +58,44 @@ export const dangKiAction = async (register) => {
     } catch (err) {
       swal.fire("Thông báo", "Đăng kí thất bại!", "error");
       console.log(err.response.status);
+    }
+  };
+};
+
+export const layThongTinTaiKhoanActionApi = async (taiKhoan) => {
+  return async (dispatch) => {
+    try {
+      let { data, status } = await Axios({
+        url: DOMAIN + "/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+        method: "POST",
+        data: taiKhoan,
+      });
+      dispatch({
+        type: LAY_THONG_TIN_USER,
+        thongTinUser: data,
+      });
+    } catch (err) {
+      swal.fire("Thông báo", "Lấy thông tin không thành công", "error");
+    }
+  };
+};
+
+export const capNhatUser = async (user) => {
+  console.log(user);
+  return async (dispatch) => {
+    try {
+      let { data, status } = await Axios({
+        url: DOMAIN + "/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+        },
+        data: user,
+      });
+      swal.fire("Thông báo", "Cập nhật thành công!", "success");
+    } catch (err) {
+      console.log(err.response.data);
+      swal.fire("Thông báo", "Cập nhật không thành công", "error");
     }
   };
 };

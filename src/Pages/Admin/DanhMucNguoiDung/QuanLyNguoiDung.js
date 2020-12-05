@@ -89,7 +89,7 @@ export default function QuanLyNguoiDung() {
 
   useEffect(async () => {
     dispatch(await layDanhSachNguoiDungApiAction());
-  }, []);
+  }, [dsNguoiDung]);
 
   const handleDelete = async (taiKhoan) => {
     dispatch(await xoaNguoiDung(taiKhoan));

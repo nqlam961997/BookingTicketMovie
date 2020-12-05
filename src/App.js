@@ -11,8 +11,9 @@ import DangKy from "./Components/DangKy/DangKy";
 import DangNhap from "./Components/DangNhap/DangNhap";
 import PhimDangChieu from "./Pages/PhimDangChieu";
 import PhimSapChieu from "./Pages/PhimSapChieu";
-import ThongTinTaiKhoan from "./Pages/ThongTinTaiKhoan";
+import ThongTinTaiKhoan from "./Pages/UserProfile/ThongTinTaiKhoan";
 import { AdminTemplate } from "./Templates/AdminTemplate";
+import { UserProfile } from "./Templates/UserProfile";
 
 import QuanLyPhim from "./Pages/Admin/DanhMucPhim/QuanLyPhim";
 import ThemPhim from "./Pages/Admin/DanhMucPhim/ThemPhim";
@@ -20,6 +21,7 @@ import EditPhim from "./Pages/Admin/DanhMucPhim/EditPhim";
 import QuanLyNguoiDung from "./Pages/Admin/DanhMucNguoiDung/QuanLyNguoiDung";
 import ThemNguoiDung from "./Pages/Admin/DanhMucNguoiDung/ThemNguoiDung";
 import EditUser from "./Pages/Admin/DanhMucNguoiDung/EditUser";
+import EditUserProfile from "./Pages/UserProfile/EditUserProfile";
 
 function App() {
   return (
@@ -56,6 +58,17 @@ function App() {
           Component={ThemNguoiDung}
         />
         <AdminTemplate exact path="/admin/chinhsuauser" Component={EditUser} />
+
+        <UserProfile
+          exact
+          path="/thongtintaikhoan/profile"
+          Component={ThongTinTaiKhoan}
+        />
+        <UserProfile
+          exact
+          path="/thongtintaikhoan/editprofile"
+          Component={EditUserProfile}
+        />
       </Switch>
     </>
   );

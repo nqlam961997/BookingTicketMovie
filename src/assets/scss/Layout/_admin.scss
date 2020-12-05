@@ -17,17 +17,17 @@
 .edit {
   padding: 5px 25px;
   margin: 0 5px;
-  background-color: #fff;
   border: 1px solid #28a745;
   border-radius: 5px;
-  color: #28a745;
   font-weight: bold;
   cursor: pointer;
   transition: all .3s;
+  background-color: #28a745;
+  color: #fff;
 
   &:hover {
-    background-color: #28a745;
-    color: #fff;
+    background-color: #fff;
+    color: #28a745;
   }
 }
 
@@ -228,6 +228,70 @@ h1 {
     }
   }
 }
+
+.userProfile--layout {
+  min-height: 100vh;
+}
+
+.ant-col {
+  margin: 0 auto;
+}
+
+.col-user {
+  margin-top: 3%;
+
+  .text-user {
+    padding-bottom: 2%;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .thongTin {
+    padding: 5px 0;
+    border-bottom: 1px solid gray;
+    margin-bottom: 5px;
+
+    input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid rgba(128, 128, 128, 0.699);
+      border-radius: 5px;
+
+      &:focus {
+        border: 1px solid rgb(128, 128, 128);
+      }
+    }
+  }
+
+  .btn-edit {
+    width: 100%;
+  }
+}
+
+// #components-layout-demo-top .logo {
+//   float: left;
+//   width: 120px;
+//   height: 31px;
+//   margin: 16px 24px 16px 0;
+//   background: rgba(255, 255, 255, 0.3);
+// }
+
+// .ant-row-rtl #components-layout-demo-top .logo {
+//   float: right;
+//   margin: 16px 0 16px 24px;
+// }
+
+// .site-layout-content {
+//   min-height: 280px;
+//   padding: 24px;
+//   background: #fff;
+
+//   .col-user {
+//     margin-left: 30%;
+//   }
+
+
+// }
 
 // .form-group {
 //   width: 100%;

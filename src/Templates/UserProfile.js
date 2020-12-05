@@ -1,19 +1,22 @@
 import { NavLink, Route } from "react-router-dom";
 import "antd/dist/antd.css";
+import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { LogoutOutlined, TeamOutlined, UserOutlined } from "@ant-design/icons";
-import { useState } from "react";
 import { ACCESSTOKEN, USER_LOGIN } from "../Util/Config";
 import { history } from "../Util/history";
 
 const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-export const AdminTemplate = (props) => {
+export const UserProfile = (props) => {
+  let { Component, ...restParams } = props;
   const [state, setState] = useState({
     collapsed: false,
   });
-  let { Component, ...restParams } = props;
+  const [user, setUser] = useState({
+    taiKhoan: "",
+  });
 
   const onCollapse = (collapsed) => {
     console.log(collapsed);
@@ -23,9 +26,9 @@ export const AdminTemplate = (props) => {
   return (
     <Route
       {...restParams}
-      render={(propsRoute) => {
+      render={(...propsRoute) => {
         const handleLogout = () => {
-          console.log("log out");
+          console.log("logout");
           localStorage.removeItem(USER_LOGIN);
           localStorage.removeItem(ACCESSTOKEN);
           history.push("/");
@@ -33,6 +36,35 @@ export const AdminTemplate = (props) => {
 
         return (
           <>
+            {/* <Layout className="layout userProfile--layout">
+              <Header>
+                <Menu
+                  theme="dark"
+                  mode="horizontal"
+                  defaultSelectedKeys={["2"]}
+                >
+                  <Menu.Item key="1">
+                    <NavLink exact to="/">
+                      <HomeOutlined style={{ fontSize: "1.5rem" }} />
+                    </NavLink>
+                  </Menu.Item>
+                  <Menu.Item key="2">
+                    <NavLink exact to="/thongtintaikhoan/profile">
+                      Thông tin tài khoản
+                    </NavLink>
+                  </Menu.Item>
+                  <Menu.Item key="3">nav 3</Menu.Item>
+                </Menu>
+              </Header>
+              <Content style={{ padding: "0 50px" }}>
+                <div className="site-layout-content">
+                  <Component {...propsRoute} />;
+                </div>
+              </Content>
+              <Footer style={{ textAlign: "center" }}>
+                <h1>CYBER-MOVIE</h1>
+              </Footer>
+            </Layout> */}
             <Layout style={{ minHeight: "100vh" }}>
               <Sider
                 collapsible
@@ -56,7 +88,7 @@ export const AdminTemplate = (props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        CyberSoft
+                        CyberMovie
                       </div>
                     ) : (
                       ""
@@ -65,34 +97,18 @@ export const AdminTemplate = (props) => {
                   <SubMenu
                     key="sub1"
                     icon={<UserOutlined />}
-                    title="Danh muc phim"
+                    title="Tài khoản người dùng"
                   >
                     <Menu.Item key="3">
-                      <NavLink exact to="/admin/quanlyphim">
-                        Quản lý phim
+                      <NavLink exact to="/thongtintaikhoan/profile">
+                        Thông tin tài khoản
                       </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="5">
-                      <NavLink exact to="/admin/themphim">
-                        Thêm phim mới
+                    {/* <Menu.Item key="5">
+                      <NavLink exact to="/thongtintaikhoan/profile">
+                        Lịch sử đặt vé
                       </NavLink>
-                    </Menu.Item>
-                  </SubMenu>
-                  <SubMenu
-                    key="sub2"
-                    icon={<TeamOutlined />}
-                    title="Danh muc nguoi dung"
-                  >
-                    <Menu.Item key="6">
-                      <NavLink exact to="/admin/quanlynguoidung">
-                        Danh sach người dùng
-                      </NavLink>
-                    </Menu.Item>
-                    <Menu.Item key="8">
-                      <NavLink exact to="/admin/themnguoidung">
-                        Thêm người dùng
-                      </NavLink>
-                    </Menu.Item>
+                    </Menu.Item> */}
                   </SubMenu>
                   <Menu.Item
                     key="9"
@@ -109,10 +125,7 @@ export const AdminTemplate = (props) => {
                     <Breadcrumb.Item>User</Breadcrumb.Item>
                     <Breadcrumb.Item>Bill</Breadcrumb.Item>
                   </Breadcrumb> */}
-                  <div
-                    className="site-layout-background"
-                    style={{ padding: 24, minHeight: 360 }}
-                  >
+                  <div className="site-layout-background">
                     <Component {...propsRoute} />
                   </div>
                 </Content>
