@@ -12,9 +12,13 @@ export default function ThemPhim() {
     moTa: "",
     maNhom: "GP07",
   });
-
-  // const [valid, setValid] = useState();
-
+  const [error, setError] = useState({
+    hinhAnh: "",
+    maPhim: "",
+    tenPhim: "",
+    trailer: "",
+    moTa: "",
+  });
   const dispatch = useDispatch();
 
   const { thongTinPhim, updateFilm } = useSelector(
@@ -23,10 +27,26 @@ export default function ThemPhim() {
 
   const handleChange = (e) => {
     let target = e.target;
+    let errorMsg = "";
+    let values = { ...state, [target.name]: target.value };
+    let errors = { ...error, [target.name]: errorMsg };
+    console.log(target.files);
+
+    if (target.value.trim() === "") {
+      errorMsg = target.name + " không được để trống";
+    }
+
+    if (target.type === "file") {
+      if (target.files === null) {
+        errorMsg = target.name + " không được bỏ trông";
+      }
+    }
+
     if (target.name === "hinhAnh") {
       setState({ ...state, hinhAnh: e.target.files[0] });
     } else {
-      setState({ ...state, [e.target.name]: e.target.value });
+      setState(values);
+      setError(errors);
     }
   };
 
@@ -47,22 +67,20 @@ export default function ThemPhim() {
         <div className="thongTin">
           <div className="form-group">
             <p>Tên phim</p>
-            <input
-              name="tenPhim"
-              id="tenPhim"
-              value={state.state?.tenPhim}
-              onChange={handleChange}
-            />
+            <input name="tenPhim" id="tenPhim" onChange={handleChange} />
+            <p className="text-error">{error?.tenPhim}</p>
           </div>
 
           <div className="form-group">
             <p>Trailer</p>
             <input name="trailer" id="trainler" onChange={handleChange} />
+            <p className="text-error">{error?.trailer}</p>
           </div>
 
           <div className="form-group">
             <p>Mô tả</p>
             <input name="moTa" id="moTa" onChange={handleChange} />
+            <p className="text-error">{error?.moTa}</p>
           </div>
         </div>
 
@@ -70,6 +88,7 @@ export default function ThemPhim() {
           <div className="form-group">
             <p>Hình ảnh</p>
             <input type="file" name="hinhAnh" onChange={handleChange} />
+            <p className="text-error">{error?.hinhAnh}</p>
           </div>
         </div>
 

@@ -43,15 +43,15 @@ export default function EditUserProfile() {
   return (
     <form onSubmit={handleSubmit}>
       <Row>
-        <Col className="col-user" span="8">
+        <Col className="col-user" xl={8} sm={24}>
           <h1 className="text-user">CẬP NHẬT THÔNG TIN CÁ NHÂN</h1>
 
           <Row className="thongTin">
-            <Col className="col-user1" span="8">
+            <Col className="col-user1" xl={8}>
               <h2>Họ và tên:</h2>
             </Col>
 
-            <Col span="12" className="col-user1">
+            <Col xl={12} className="col-user2">
               {/* <h2>{userProfile.hoTen}</h2> */}
               <input
                 type="text"
@@ -63,31 +63,32 @@ export default function EditUserProfile() {
           </Row>
 
           <Row className="thongTin">
-            <Col className="col-user1" span="8">
+            <Col className="col-user1" xl={8}>
               <h2>Tài khoản:</h2>
             </Col>
 
-            <Col span="12" className="col-user1">
+            <Col xl={12} className="col-user2">
               {/* <h2>{userProfile.taiKhoan}</h2> */}
               <input
                 type="text"
                 name="taiKhoan"
                 value={userEdit.taiKhoan}
+                disabled
                 onChange={handleChange}
               />
             </Col>
           </Row>
 
           <Row className="thongTin">
-            <Col className="col-user1" span="8">
+            <Col className="col-user1" xl={8}>
               <h2>Mật khẩu:</h2>
             </Col>
 
-            <Col span="12" className="col-user1">
+            <Col xl={12} className="col-user2">
               {/* <h2>{userProfile.email}</h2> */}
               <input
                 type="text"
-                name="email"
+                name="matKhau"
                 value={userEdit.matKhau}
                 onChange={handleChange}
               />
@@ -95,11 +96,11 @@ export default function EditUserProfile() {
           </Row>
 
           <Row className="thongTin">
-            <Col className="col-user1" span="8">
-              <h2>Số điện thoại:</h2>
+            <Col className="col-user1" xl={8}>
+              <h2>Số ĐT:</h2>
             </Col>
 
-            <Col span="12" className="col-user1">
+            <Col xl={12} className="col-user2">
               {/* <h2>{userProfile.soDT}</h2> */}
               <input
                 type="text"
@@ -111,11 +112,11 @@ export default function EditUserProfile() {
           </Row>
 
           <Row className="thongTin">
-            <Col className="col-user1" span="8">
+            <Col className="col-user1" xl={8}>
               <h2>Email:</h2>
             </Col>
 
-            <Col span="12" className="col-user1">
+            <Col xl={12} className="col-user2">
               {/* <h2>{userProfile.email}</h2> */}
               <input
                 type="text"

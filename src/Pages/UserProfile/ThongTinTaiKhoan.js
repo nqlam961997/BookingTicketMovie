@@ -26,45 +26,45 @@ export default function ThongTinTaiKhoan() {
 
   return (
     <Row>
-      <Col className="col-user" span="8">
+      <Col className="col-user" xl={8} sm={24}>
         <h1 className="text-user">THÔNG TIN CÁ NHÂN</h1>
 
         <Row className="thongTin">
-          <Col className="col-user1" span="8">
+          <Col className="col-user1" xl={8}>
             <h2>Họ và tên:</h2>
           </Col>
 
-          <Col span="12" className="col-user1">
+          <Col className="col-user2" xl={12}>
             <h2>{thongTinUser?.hoTen}</h2>
           </Col>
         </Row>
 
         <Row className="thongTin">
-          <Col className="col-user1" span="8">
+          <Col className="col-user1" xl={8}>
             <h2>Tài khoản:</h2>
           </Col>
 
-          <Col span="12" className="col-user1">
+          <Col className="col-user2" xl={12}>
             <h2>{thongTinUser?.taiKhoan}</h2>
           </Col>
         </Row>
 
         <Row className="thongTin">
-          <Col className="col-user1" span="8">
+          <Col className="col-user1" xl={8}>
             <h2>Số điện thoại:</h2>
           </Col>
 
-          <Col span="12" className="col-user1">
+          <Col className="col-user2" xl={12}>
             <h2>{thongTinUser?.soDT}</h2>
           </Col>
         </Row>
 
         <Row className="thongTin">
-          <Col className="col-user1" span="8">
+          <Col className="col-user1" xl={8}>
             <h2>Email:</h2>
           </Col>
 
-          <Col span="12" className="col-user1">
+          <Col className="col-user2" xl={12}>
             <h2>{thongTinUser?.email}</h2>
           </Col>
         </Row>
