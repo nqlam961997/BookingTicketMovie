@@ -15,19 +15,23 @@ export default function EditUserProfile() {
     maLoaiNguoiDung: "KhachHang",
   });
 
-  const { thongTinUser } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { thongTinNguoiDung } = useSelector(
+    (state) => state.QuanLyNguoiDungReducer
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     setUserEdit({
       ...userEdit,
-      taiKhoan: thongTinUser?.taiKhoan,
-      matKhau: thongTinUser?.matKhau,
-      email: thongTinUser?.email,
-      soDT: thongTinUser?.soDT,
-      hoTen: thongTinUser?.hoTen,
+      taiKhoan: thongTinNguoiDung?.taiKhoan,
+      matKhau: thongTinNguoiDung?.matKhau,
+      email: thongTinNguoiDung?.email,
+      soDT: thongTinNguoiDung?.soDT,
+      hoTen: thongTinNguoiDung?.hoTen,
     });
-  }, [thongTinUser]);
+  }, [thongTinNguoiDung]);
+
+  console.log(userEdit);
 
   const handleChange = (e) => {
     let { name, value } = e.target;

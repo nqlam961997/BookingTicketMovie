@@ -17,12 +17,16 @@ export default function EditPhim() {
     moTa: "",
     maNhom: "GP07",
   });
+  const [error, setError] = useState({
+    maPhim: "",
+    tenPhim: "",
+    trailer: "",
+    moTa: "",
+  });
 
   const dispatch = useDispatch();
 
-  const { thongTinPhim, updateFilm } = useSelector(
-    (state) => state.QuanLyPhimAdminReducer
-  );
+  const { thongTinPhim } = useSelector((state) => state.QuanLyPhimAdminReducer);
 
   useEffect(() => {
     setState({
@@ -35,18 +39,25 @@ export default function EditPhim() {
     });
   }, [thongTinPhim]);
 
-  console.log(state);
-
   const handleChange = (e) => {
     let target = e.target;
+    let errorMsg = "";
+
+    if (target.value.trim() === "") {
+      errorMsg = target.name + " không được để trống";
+    }
+    let values = { ...state, [target.name]: target.value };
+    let errors = { ...error, [target.name]: errorMsg };
+
     if (target.name === "hinhAnh") {
       setState({ ...state, hinhAnh: e.target.files[0] });
     } else {
-      setState({ ...state, [e.target.name]: e.target.value });
+      setState(values);
+      setError(errors);
     }
   };
 
-  const handleUpdate = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let form_data = new FormData();
     for (let key in state) {
@@ -54,7 +65,6 @@ export default function EditPhim() {
     }
     dispatch(await updatePhimApiAction(form_data));
     document.getElementById("form-edit").reset();
-    console.log(state);
   };
 
   const handleCancle = (e) => {
@@ -73,10 +83,32 @@ export default function EditPhim() {
     history.push("/admin/quanlyphim");
   };
 
+  const renderButton = () => {
+    let valid = true;
+    for (let item in error) {
+      if (error[item] != "") {
+        valid = false;
+      }
+    }
+    if (valid) {
+      return (
+        <button type="submit" className="update">
+          Cập nhật phim
+        </button>
+      );
+    } else {
+      return (
+        <button type="submit" className="update disabled" disabled>
+          Cập nhật phim
+        </button>
+      );
+    }
+  };
+
   return (
     <div>
       <h1>THÊM PHIM</h1>
-      <form className="container-form" id="form-edit">
+      <form className="container-form" id="form-edit" onSubmit={handleSubmit}>
         <div className="thongTin">
           <div className="form-group">
             <p>Mã nhóm</p>
@@ -107,6 +139,7 @@ export default function EditPhim() {
               value={state?.tenPhim}
               onChange={handleChange}
             />
+            <p className="text-error">{error?.tenPhim}</p>
           </div>
 
           <div className="form-group">
@@ -117,6 +150,7 @@ export default function EditPhim() {
               value={state?.trailer}
               onChange={handleChange}
             />
+            <p className="text-error">{error?.trailer}</p>
           </div>
 
           <div className="form-group">
@@ -127,6 +161,7 @@ export default function EditPhim() {
               value={state.moTa}
               onChange={handleChange}
             />
+            <p className="text-error">{error?.moTa}</p>
           </div>
         </div>
 
@@ -145,9 +180,7 @@ export default function EditPhim() {
         </div>
 
         <>
-          <button className="update" onClick={handleUpdate}>
-            Cập nhật phim
-          </button>{" "}
+          {renderButton()}{" "}
           <button className="cancel" onClick={handleCancle}>
             Hủy bỏ
           </button>

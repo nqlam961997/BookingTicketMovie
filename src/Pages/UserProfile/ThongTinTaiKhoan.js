@@ -9,13 +9,15 @@ export default function ThongTinTaiKhoan() {
   const dispatch = useDispatch();
 
   let userProfile = JSON.parse(localStorage.getItem(USER_LOGIN));
-  let { thongTinUser } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  let { thongTinNguoiDung } = useSelector(
+    (state) => state.QuanLyNguoiDungReducer
+  );
 
   useEffect(async () => {
     let userFile = {};
     userFile.taiKhoan = userProfile.taiKhoan;
     dispatch(await layThongTinTaiKhoanActionApi(userFile));
-  }, [thongTinUser]);
+  }, [thongTinNguoiDung]);
 
   const handleEdit = async (userProfile) => {
     let user = {};
@@ -35,7 +37,7 @@ export default function ThongTinTaiKhoan() {
           </Col>
 
           <Col className="col-user2" xl={12}>
-            <h2>{thongTinUser?.hoTen}</h2>
+            <h2>{thongTinNguoiDung?.hoTen}</h2>
           </Col>
         </Row>
 
@@ -45,7 +47,7 @@ export default function ThongTinTaiKhoan() {
           </Col>
 
           <Col className="col-user2" xl={12}>
-            <h2>{thongTinUser?.taiKhoan}</h2>
+            <h2>{thongTinNguoiDung?.taiKhoan}</h2>
           </Col>
         </Row>
 
@@ -55,7 +57,7 @@ export default function ThongTinTaiKhoan() {
           </Col>
 
           <Col className="col-user2" xl={12}>
-            <h2>{thongTinUser?.soDT}</h2>
+            <h2>{thongTinNguoiDung?.soDT}</h2>
           </Col>
         </Row>
 
@@ -65,7 +67,7 @@ export default function ThongTinTaiKhoan() {
           </Col>
 
           <Col className="col-user2" xl={12}>
-            <h2>{thongTinUser?.email}</h2>
+            <h2>{thongTinNguoiDung?.email}</h2>
           </Col>
         </Row>
 

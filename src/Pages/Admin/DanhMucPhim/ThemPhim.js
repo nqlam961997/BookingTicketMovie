@@ -13,7 +13,6 @@ export default function ThemPhim() {
     maNhom: "GP07",
   });
   const [error, setError] = useState({
-    hinhAnh: "",
     maPhim: "",
     tenPhim: "",
     trailer: "",
@@ -28,19 +27,14 @@ export default function ThemPhim() {
   const handleChange = (e) => {
     let target = e.target;
     let errorMsg = "";
-    let values = { ...state, [target.name]: target.value };
-    let errors = { ...error, [target.name]: errorMsg };
+
     console.log(target.files);
 
     if (target.value.trim() === "") {
       errorMsg = target.name + " không được để trống";
     }
-
-    if (target.type === "file") {
-      if (target.files === null) {
-        errorMsg = target.name + " không được bỏ trông";
-      }
-    }
+    let values = { ...state, [target.name]: target.value };
+    let errors = { ...error, [target.name]: errorMsg };
 
     if (target.name === "hinhAnh") {
       setState({ ...state, hinhAnh: e.target.files[0] });
@@ -50,7 +44,7 @@ export default function ThemPhim() {
     }
   };
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let form_data = new FormData();
     for (let key in state) {
@@ -60,10 +54,32 @@ export default function ThemPhim() {
     dispatch(await themPhimMoiApiAction(form_data));
   };
 
+  const renderButton = () => {
+    let valid = true;
+    for (let item in error) {
+      if (error[item] !== "") {
+        valid = false;
+      }
+    }
+    if (valid) {
+      return (
+        <button type="submit" className="themPhim">
+          Thêm phim
+        </button>
+      );
+    } else {
+      return (
+        <button type="submit" className="themPhim disabled" disabled>
+          Thêm phim
+        </button>
+      );
+    }
+  };
+
   return (
     <div>
       <h1>THÊM PHIM</h1>
-      <form className="container-form">
+      <form className="container-form" onSubmit={handleSubmit}>
         <div className="thongTin">
           <div className="form-group">
             <p>Tên phim</p>
@@ -91,10 +107,7 @@ export default function ThemPhim() {
             <p className="text-error">{error?.hinhAnh}</p>
           </div>
         </div>
-
-        <button className="themPhim" onClick={handleAdd}>
-          Thêm phim
-        </button>
+        {renderButton()}
       </form>
     </div>
   );

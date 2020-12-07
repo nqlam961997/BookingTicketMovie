@@ -123,6 +123,17 @@ h1 {
     }
   }
 
+  .themPhim.disabled {
+    cursor: default;
+    opacity: 0.8;
+
+    &:hover {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+    }
+  }
+
   .update {
     width: 45%;
     padding: 5px 0;
@@ -138,6 +149,17 @@ h1 {
       background-color: #fff;
       color: #4267b3;
       border: 1px solid #4267b3;
+    }
+  }
+
+  .update.disabled {
+    cursor: default;
+    opacity: 0.8;
+
+    &:hover {
+      background-color: #4267b3;
+      color: #fff;
+      border: none;
     }
   }
 
@@ -192,6 +214,17 @@ h1 {
       background-color: #fff;
       color: #28a745;
       border: 1px solid #28a745;
+    }
+  }
+
+  .themNguoiDung.disabled {
+    cursor: default;
+    opacity: 0.8;
+
+    &:hover {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
     }
   }
 

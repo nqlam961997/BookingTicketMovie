@@ -20,6 +20,14 @@ export default function EditUser() {
     maLoaiNguoiDung: "",
     maNhom: "GP07",
   });
+  const [error, setError] = useState({
+    taiKhoan: "",
+    matKhau: "",
+    email: "",
+    soDT: "",
+    hoTen: "",
+    maLoaiNguoiDung: "",
+  });
 
   useEffect(() => {
     setUser({
@@ -34,9 +42,24 @@ export default function EditUser() {
   }, [thongTinUser]);
 
   const handleChange = (e) => {
-    const { value, name } = e.target;
-    console.log(name, value);
-    setUser({ ...user, [name]: value });
+    const { value, name, type, pattern } = e.target;
+    let errorMsg = "";
+
+    if (value.trim() === "") {
+      errorMsg = name + " không được để trống";
+    }
+    if (type === "number" || type === "email") {
+      const regex = new RegExp(pattern);
+
+      if (!regex.test(value)) {
+        errorMsg = name + " không đúng định dạng";
+      }
+    }
+    let values = { ...user, [name]: value };
+    let errors = { ...error, [name]: errorMsg };
+
+    setUser(values);
+    setError(errors);
   };
 
   const handleSubmit = async (e) => {
@@ -62,11 +85,37 @@ export default function EditUser() {
     history.push("/admin/quanlynguoidung");
   };
 
+  const renderButton = () => {
+    let valid = true;
+    for (let item in error) {
+      if (error[item] !== "") {
+        valid = false;
+      }
+    }
+    if (valid) {
+      return (
+        <button type="submit" className="update">
+          Cập nhật
+        </button>
+      );
+    } else {
+      return (
+        <button type="submit" className="update disabled" disabled>
+          Cập nhật
+        </button>
+      );
+    }
+  };
+
   return (
     <div>
       <h1>CHỈNH SỬA NGƯỜI DÙNG</h1>
 
-      <form className="container-form userForm" onSubmit={handleSubmit}>
+      <form
+        className="container-form userForm"
+        id="form-edit"
+        onSubmit={handleSubmit}
+      >
         <div className="thongTin">
           <div className="form-group">
             <p>Họ tên</p>
@@ -90,11 +139,23 @@ export default function EditUser() {
           </div>
           <div className="form-group">
             <p>Số điện thoại</p>
-            <input name="soDt" value={user.soDt} onChange={handleChange} />
+            <input
+              name="soDt"
+              value={user.soDt}
+              onChange={handleChange}
+              type="number"
+              pattern="^[0-9]+$"
+            />
           </div>
           <div className="form-group">
             <p>Email</p>
-            <input name="email" value={user.email} onChange={handleChange} />
+            <input
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              type="email"
+              pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))+$'
+            />
           </div>
           <div className="form-group">
             <p>Loại người dùng</p>
@@ -103,11 +164,10 @@ export default function EditUser() {
               <option value="KhachHang">Khách hàng</option>
               <option value="QuanTri">Quản trị</option>
             </select>
+            <p className="text-error">{error?.maLoaiNguoiDung}</p>
           </div>
           <>
-            <button className="update" type="submit">
-              Cập nhật
-            </button>{" "}
+            {renderButton()}{" "}
             <button className="cancel" onClick={handleCancle}>
               Hủy bỏ
             </button>

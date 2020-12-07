@@ -1,7 +1,12 @@
 import { NavLink, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Layout, Menu } from "antd";
-import { LogoutOutlined, TeamOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  LogoutOutlined,
+  TeamOutlined,
+  UserOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
 import { useState } from "react";
 import { ACCESSTOKEN, USER_LOGIN } from "../Util/Config";
 import { history } from "../Util/history";
@@ -43,7 +48,7 @@ export const AdminTemplate = (props) => {
                 <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
                   <div className="admin_logo">
                     <img
-                      style={{ borderRadius: "50%" }}
+                      style={{ borderRadius: "50%", marginTop: "20px" }}
                       src="https://picsum.photos/50/50"
                       alt=""
                     />
@@ -56,7 +61,7 @@ export const AdminTemplate = (props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        CyberSoft
+                        CyberMovie
                       </div>
                     ) : (
                       ""
@@ -64,7 +69,7 @@ export const AdminTemplate = (props) => {
                   </div>
                   <SubMenu
                     key="sub1"
-                    icon={<UserOutlined />}
+                    icon={<MenuOutlined />}
                     title="Danh muc phim"
                   >
                     <Menu.Item key="3">

@@ -14,7 +14,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 
 const stateDefault = {
   userLogin: {},
-  thongTinUser: {},
+  thongTinNguoiDung: {},
 
   registerStateForm: {
     registerValues: {
@@ -49,7 +49,7 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
     }
 
     case LAY_THONG_TIN_USER: {
-      state.thongTinUser = action.thongTinUser;
+      state.thongTinNguoiDung = action.thongTinUser;
       return { ...state };
     }
 
