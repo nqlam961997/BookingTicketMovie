@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ThongTinTaiKhoan() {
+export default function ThongTinTaiKhoan(props) {
   return (
     <div className="main">
       <div className="block-account">

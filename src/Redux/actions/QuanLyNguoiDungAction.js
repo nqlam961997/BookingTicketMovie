@@ -19,11 +19,11 @@ export const dangNhapAction = async (userLogin) => {
       console.log(result.data);
       localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
       localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
-      swal.fire("Thông báo", "Đăng nhập thành công!", "success");
       dispatch({
         type: DANG_NHAP,
         userLogin: userLogin,
       });
+      swal.fire("Thông báo", "Đăng nhập thành công!", "success");
       history.push("/thongtintaikhoan");
     } catch (err) {
       swal.fire("Thông báo", "Đăng nhập thất bại!", "error");

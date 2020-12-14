@@ -5,6 +5,14 @@ import { NavLink } from "react-router-dom";
 import PhimDangChieu from "./PhimDangChieu";
 import ThongTinCumRap from "./ThongTinCumRap";
 import TinTuc from "./TinTuc";
+import BackApp from "./BackApp";
+import PhimSapChieu from "./PhimSapChieu";
+import { CarouselItem } from "../Components/Carousel/CarouselItem";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function TrangChu(props) {
   const handleAddActive = () => {
@@ -12,20 +20,27 @@ export default function TrangChu(props) {
     trailer.classList.toggle("active");
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+    // AOS.refresh();
+  }, []);
+
   return (
     <>
-      <div className="carousel">
+      <div className="carousel" data-aos="fade-up">
         <div className="carousel-content">
           <h2>
-            Put on a <span>Happy</span> face
+            PUT ON A <span>HAPPY</span> FACE
           </h2>
           <p>
-            Joker từ lâu đã là siêu ác nhân huyền thoại của điện ảnh thế giới.
+            {" "}
+            "Joker từ lâu đã là siêu ác nhân huyền thoại của điện ảnh thế giới.
             Nhưng có bao giờ bạn tự hỏi, Joker đến từ đâu và điều gì đã biến
             Joker trở thành biểu tượng tội lỗi của thành phố Gotham? JOKER sẽ là
             cái nhìn độc đáo về tên ác nhân khét tiếng của Vũ trụ DC – một câu
             chuyện gốc thấm nhuần, nhưng tách biệt rõ ràng với những truyền
-            thuyết quen thuộc xoay quanh nhân vật mang đầy tính biểu tượng này.
+            thuyết quen thuộc xoay quanh nhân vật mang đầy tính biểu tượng
+            này.",
           </p>
           <a href="#" className="play" onClick={handleAddActive}>
             <img src="img/play.png" />
@@ -51,21 +66,25 @@ export default function TrangChu(props) {
         </div>
       </div>
       <div className="container">
-        <div className="film-wrapper" id="phimDangChieu">
-          <div className="nav-tab">
-            <ul>
-              <li>
-                <NavLink to="/phimdangchieu">Đang Chiếu</NavLink>
-              </li>
-              <li>
-                <NavLink to="/phimsapchieu" style={{marginLeft:"30px"}}>Sắp Chiếu</NavLink>
-              </li>
-            </ul>
+        <div className="film-wrapper" id="phimDangChieu" data-aos="fade-down">
+          <div>
+            <h1>Phim Đang Chiếu</h1>
+            <PhimDangChieu />
           </div>
-          <PhimDangChieu />
+          <div style={{ marginTop: "30px" }}>
+            <h1>Phim Sắp Chiếu</h1>
+            <PhimSapChieu />
+          </div>
         </div>
-        <ThongTinCumRap/>
-        <TinTuc/>
+        <div id="cumRap" data-aos="fade-right">
+          <ThongTinCumRap />
+        </div>
+        <div data-aos="fade-left">
+          <TinTuc />
+        </div>
+      </div>
+      <div data-aos="fade-up-right">
+        <BackApp />
       </div>
     </>
   );

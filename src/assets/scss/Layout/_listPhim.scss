@@ -1,4 +1,6 @@
 .slick-slider {
+    display: flex;
+    justify-content: center;
     .slick-prev {
         &::before {
             color: #000;
@@ -7,34 +9,20 @@
     }
     .slick-next {
         &::before {
+            font-size: 30px;
             color: #000;
         }
     }
 }
 
 .film-wrapper {
-    ul {
-        list-style: none;
+    h1 {
+        color: #fa5238;
         text-align: center;
-        margin-bottom: 50px;
-        li {
-            display: inline-block;
-            a {
-                font-size: 2em;
-                color: #000;
-                text-decoration: none;
-                // padding: 0 30px;
-                line-height: 24px;
-                transition: all 0.5s;
-                display: block;
-                &:hover {
-                    color: #fa5238;
-                    transform: scale(1.2);
-                }
-            }
-        }
+        margin: 20px 0;
     }
     .box {
+        margin-left: 40px;
         position: relative;
         max-width: 250px;
         perspective: 1000px;
@@ -118,6 +106,14 @@
         &:hover {
             transform: scale(1.1);
             box-shadow: 1px 2px 10px 5px solid #000;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .film-wrapper {
+        .box {
+            margin-left: 25px;
         }
     }
 }

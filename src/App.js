@@ -14,6 +14,7 @@ import PhimSapChieu from './Pages/PhimSapChieu';
 import ThongTinTaiKhoan from "./Pages/ThongTinTaiKhoan";
 import ThongTinCumRap from "./Pages/ThongTinCumRap";
 import ThongTinFilm from "./Pages/ThongTinFilm";
+import PhongVe from "./Pages/PhongVe";
 
 function App() {
   return (
@@ -24,12 +25,13 @@ function App() {
         <HomeTemplate exact path="/lienhe" Component={LienHe} />
         <HomeTemplate exact path="/tintuc" Component={TinTuc} />
         <HomeTemplate exact path="/thongtintaikhoan" Component={ThongTinTaiKhoan} />
-        <HomeTemplate exact path="/thongtinphim" Component={ThongTinFilm} />
+        <HomeTemplate exact path="/thongtinphim/:maPhim" Component={ThongTinFilm}/>
         {/* <HomeTemplate exact path="/" Component={ThongTinCumRap}/> */}
         <UserTemplate exact path="/dangky" Component={DangKy} />
         <UserTemplate exact path="/dangnhap" Component={DangNhap} />
         <HomeTemplate exact path="/phimsapchieu" Component={PhimSapChieu} />
         <HomeTemplate exact path="/phimdangchieu" Component={PhimDangChieu} />
+        <HomeTemplate exact path="/chitietphongve/:maLichChieu" Component={PhongVe}/>
       </Switch>
     </>
   );
