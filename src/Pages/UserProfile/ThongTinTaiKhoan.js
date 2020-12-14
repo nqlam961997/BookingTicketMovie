@@ -15,7 +15,7 @@ export default function ThongTinTaiKhoan() {
 
   useEffect(async () => {
     let userFile = {};
-    userFile.taiKhoan = userProfile.taiKhoan;
+    userFile.taiKhoan = userProfile?.taiKhoan;
     dispatch(await layThongTinTaiKhoanActionApi(userFile));
   }, [thongTinNguoiDung]);
 

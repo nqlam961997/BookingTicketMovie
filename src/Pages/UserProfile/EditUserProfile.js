@@ -3,6 +3,7 @@ import { Row, Col } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { capNhatUser } from "../../Redux/actions/QuanLyNguoiDungAction";
 import { history } from "../../Util/history";
+import { ACCESSTOKEN, USER_LOGIN } from "../../Util/Config";
 
 export default function EditUserProfile() {
   const [userEdit, setUserEdit] = useState({
@@ -41,6 +42,10 @@ export default function EditUserProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(await capNhatUser(userEdit));
+    history.push("/thongtintaikhoan/profile");
+  };
+
+  const handleCancel = () => {
     history.push("/thongtintaikhoan/profile");
   };
 
@@ -132,8 +137,12 @@ export default function EditUserProfile() {
           </Row>
           <Col className="col-user1">
             {/* <h2>{userProfile.email}</h2> */}
-            <button className="edit" type="submit">
+            <button type="submit" className="update" type="submit">
               Cập nhật
+            </button>
+
+            <button className="cancel" onClick={handleCancel}>
+              Hủy
             </button>
           </Col>
         </Col>

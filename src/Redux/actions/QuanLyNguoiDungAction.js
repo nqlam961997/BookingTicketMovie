@@ -20,16 +20,16 @@ export const dangNhapAction = async (userLogin) => {
       console.log(result.data.maLoaiNguoiDung);
       localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
       localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
-      swal.fire("Thông báo", "Đăng nhập thành công!", "success");
       dispatch({
         type: DANG_NHAP,
         userLogin: userLogin,
       });
-      if (result.data.maLoaiNguoiDung == "QuanTri") {
+      if (result.data.maLoaiNguoiDung === "QuanTri") {
         history.push("/admin/quanlyphim");
       } else {
-        history.push("/thongtintaikhoan/profile");
+        history.push("/");
       }
+      swal.fire("Thông báo", "Đăng nhập thành công!", "success");
     } catch (err) {
       swal.fire("Thông báo", "Đăng nhập thất bại!", "error");
       console.log(err);
@@ -46,8 +46,6 @@ export const dangKiAction = async (register) => {
         data: register,
       });
       console.log(result.data);
-      localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
-      localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
       swal.fire("Thông báo", "Đăng kí thành công!", "success");
       dispatch({
         type: DANG_KI,
