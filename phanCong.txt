@@ -1,0 +1,7 @@
+Phân công công việc:
+
+- Nguyễn Quang Lâm: làm các trang client user (trang chủ, chi tiết, phòng vé)
+
+- Lê Trung Hải: làm chức năng trang admin + thông tin user
+
+

@@ -37,6 +37,7 @@ export default function ThemNguoiDung() {
         errorMsg = name + " không đúng định dạng";
       }
     }
+
     let values = { ...user, [name]: value };
     let errors = { ...error, [name]: errorMsg };
 
