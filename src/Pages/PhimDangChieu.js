@@ -36,7 +36,7 @@ export default function PhimDangChieu(props) {
           </div>
           <div className="button-bookTicket">
             <NavLink to={"/thongtinphim/" + film.maPhim} className="btn-red">
-              ĐẶT VÉ
+              CHI TIẾT
             </NavLink>
           </div>
         </div>
@@ -53,6 +53,33 @@ export default function PhimDangChieu(props) {
     speed: 1500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          initialSlide: 3,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 375,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
 
   return (

@@ -1,32 +1,32 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import { useSelector } from "react-redux";
 
 export default function Header(props) {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  // const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
 
   const closeMobileMenu = () => setClick(false);
 
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(true);
-    } else {
-      setDropdown(true);
-    }
-    console.log(dropdown);
-  };
+  // const onMouseEnter = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(true);
+  //   } else {
+  //     setDropdown(true);
+  //   }
+  //   console.log(dropdown);
+  // };
 
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
+  // const onMouseLeave = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(false);
+  //   } else {
+  //     setDropdown(false);
+  //   }
+  // };
 
   const userLogin = useSelector(
     (state) => state.QuanLyNguoiDungReducer.userLogin
@@ -56,13 +56,18 @@ export default function Header(props) {
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li
             className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            // onMouseEnter={onMouseEnter}
+            // onMouseLeave={onMouseLeave}
           >
-            <a href="#phimDangChieu" className="nav-links" onClick={closeMobileMenu}>
-              PHIM <i className="fas fa-caret-down"></i>
+            <a
+              href="#phimDangChieu"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              PHIM
+              {/* <i className="fas fa-caret-down"></i> */}
             </a>
-            {dropdown && <Dropdown />}
+            {/* {dropdown && <Dropdown />} */}
           </li>
           <li className="nav-item">
             <a href="#cumRap" className="nav-links" onClick={closeMobileMenu}>
@@ -70,13 +75,13 @@ export default function Header(props) {
             </a>
           </li>
           <li className="nav-item">
-            <NavLink
-              to="/lienhe"
+            <a
+              href="#lienhe"
               className="nav-links"
               onClick={closeMobileMenu}
             >
               LIÊN HỆ
-            </NavLink>
+            </a>
           </li>
           <li className="nav-item">
             {userLogin.taiKhoan ? (
