@@ -15,50 +15,9 @@ export default function PhimSapChieu(props) {
     dispatch(await layDanhSachPhimAction());
   }, []);
 
-  const handleAddClick = () => {
-    let trailerSoon = document.querySelector(".trailerSoon");
+  const handleAddClick = (index) => {
+    let trailerSoon = document.getElementById(index);
     trailerSoon.classList.toggle("activeSoon");
-  };
-
-  const renderPhimSoon = () => {
-    return dsPhim?.slice(1, 10).map((film, index) => {
-      return (
-        <div className="box" key={index}>
-          <div className="box-img">
-            <img
-              src={film.hinhAnh}
-              alt={film.hinhAnh}
-              onError={(e) => {
-                e.target.onError = null;
-                e.target.src = "https://picsum.photos/300/300";
-              }}
-            />
-          </div>
-          <div className="film-content">
-            <h3 className="film-title">{film.tenPhim}</h3>
-          </div>
-          <div className="play-trailer">
-            <img src="/img/play.png" alt="play" onClick={handleAddClick} />
-          </div>
-          <div className="trailerSoon">
-            <iframe
-              controls
-              width="853"
-              height="480"
-              src={film.trailer}
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-            <img
-              src="/img/close.png"
-              className="close-soon"
-              onClick={handleAddClick}
-            />
-          </div>
-        </div>
-      );
-    });
   };
 
   let settings = {
@@ -100,7 +59,52 @@ export default function PhimSapChieu(props) {
   };
   return (
     <>
-      <Slider {...settings}>{renderPhimSoon()}</Slider>
+      <Slider {...settings}>
+        {dsPhim?.slice(1, 10).map((film, index) => {
+          return (
+            <>
+              <div className="box" key={index}>
+                <div className="box-img">
+                  <img
+                    src={film.hinhAnh}
+                    alt={film.hinhAnh}
+                    onError={(e) => {
+                      e.target.onError = null;
+                      e.target.src = "https://picsum.photos/300/300";
+                    }}
+                  />
+                </div>
+                <div className="film-content">
+                  <h3 className="film-title">{film.tenPhim}</h3>
+                </div>
+                <div className="play-trailer">
+                  <img
+                    src="/img/play.png"
+                    alt="play"
+                    onClick={() => handleAddClick(index)}
+                  />
+                </div>
+              </div>
+              <div className="trailerSoon" id={index}>
+                <iframe
+                  controls
+                  width="853"
+                  height="480"
+                  src={film.trailer}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <img
+                  src="/img/close.png"
+                  className="close-soon"
+                  onClick={() => handleAddClick(index)}
+                />
+              </div>
+            </>
+          );
+        })}
+      </Slider>
     </>
   );
 }
