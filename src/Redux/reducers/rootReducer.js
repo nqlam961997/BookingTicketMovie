@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import {QuanLyNguoiDungReducer} from "./QuanLyNguoiDungReducer";
-import {QuanLyPhimReducer} from './QuanLyPhimReducer';
+import { QuanLyPhimAdminReducer } from "./AdminReducer/QuanLyPhimAdminReducer";
+import { QuanLyNguoiDungAdminReducer } from "./AdminReducer/QuanLyNguoiDungAdminReducer";
+import { QuanLyNguoiDungReducer } from "./QuanLyNguoiDungReducer";
+import { QuanLyPhimReducer } from "./QuanLyPhimReducer";
 
 export const rootReducer = combineReducers({
-    QuanLyNguoiDungReducer,
-    QuanLyPhimReducer
+  QuanLyPhimAdminReducer,
+  QuanLyNguoiDungAdminReducer,
+  QuanLyNguoiDungReducer,
+  QuanLyPhimReducer,
 });

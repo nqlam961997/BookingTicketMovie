@@ -1,4 +1,9 @@
-import { DANG_NHAP, HANDLE_CHANGE_INPUT,DANG_KI } from "../const/QuanLyNguoiDungConst";
+import {
+  DANG_NHAP,
+  HANDLE_CHANGE_INPUT,
+  DANG_KI,
+  LAY_THONG_TIN_USER,
+} from "../const/QuanLyNguoiDungConst";
 
 const { USER_LOGIN } = require("../../Util/Config");
 
@@ -9,6 +14,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 
 const stateDefault = {
   userLogin: {},
+  thongTinNguoiDung: {},
 
   registerStateForm: {
     registerValues: {
@@ -37,9 +43,14 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       return { ...state };
     }
 
-    case DANG_KI:{
+    case DANG_KI: {
       state.userLogin = action.register;
-      return {...state}
+      return { ...state };
+    }
+
+    case LAY_THONG_TIN_USER: {
+      state.thongTinNguoiDung = action.thongTinUser;
+      return { ...state };
     }
 
     case HANDLE_CHANGE_INPUT: {

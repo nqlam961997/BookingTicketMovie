@@ -86,7 +86,7 @@ export default function Header(props) {
           <li className="nav-item">
             {userLogin.taiKhoan ? (
               <NavLink
-                to="/thongtintaikhoan"
+                to="/thongtintaikhoan/profile"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >

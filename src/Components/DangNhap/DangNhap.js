@@ -13,6 +13,7 @@ export default function DangNhap(props) {
   const handleChange = (e) => {
     let { value, name } = e.target;
     let newUserLogin = { ...userLogin, [name]: value };
+    console.log(name, value);
     setUserLogin(newUserLogin);
   };
 

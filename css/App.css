@@ -1,7 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+=======
   box-sizing: border-box;
+>>>>>>> dev
 }
 
 html,
@@ -10,7 +15,10 @@ body {
   color: #29303b;
   font-size: 15px;
   font-weight: normal;
+<<<<<<< HEAD
+=======
   background: #fff;
+>>>>>>> dev
 }
 
 .btn-white {
@@ -22,6 +30,10 @@ body {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+<<<<<<< HEAD
+  -webkit-transition: all .5s;
+=======
+>>>>>>> dev
   transition: all .5s;
 }
 
@@ -40,6 +52,10 @@ body {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+<<<<<<< HEAD
+  -webkit-transition: all .5s;
+=======
+>>>>>>> dev
   transition: all .5s;
 }
 
@@ -51,6 +67,35 @@ body {
 
 .container {
   width: 100%;
+<<<<<<< HEAD
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body {
+  height: 200vh;
+}
+
+.navbar {
+  background: -webkit-gradient(linear, left top, right top, from(#1c1b1b), to(#1a1717));
+  background: linear-gradient(90deg, #1c1b1b 0%, #1a1717 100%);
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  z-index: 9999;
+=======
   padding-right: 100px;
   padding-left: 100px;
   margin-right: auto;
@@ -76,6 +121,7 @@ body {
   padding: 40px 100px;
   z-index: 1000;
   color: #fff;
+>>>>>>> dev
 }
 
 .navbar .menu-icon {
@@ -88,6 +134,27 @@ body {
 
 .navbar .navbar-logo {
   color: #fff;
+<<<<<<< HEAD
+  -ms-grid-column-align: start;
+      justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.navbar .navbar-logo span {
+  display: inline-block;
+  padding-right: 1px;
+  -moz-animation: animate 3s linear infinite alternate;
+}
+
+.navbar .nav-menu {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[5];
+      grid-template-columns: repeat(5, auto);
+=======
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -107,17 +174,33 @@ body {
 .navbar .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
+>>>>>>> dev
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 70vw;
+<<<<<<< HEAD
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+=======
   justify-content: end;
+>>>>>>> dev
   margin-right: 2rem;
 }
 
 .navbar .nav-menu .nav-item {
+<<<<<<< HEAD
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+=======
   display: flex;
   align-items: center;
+>>>>>>> dev
   height: 80px;
 }
 
@@ -135,6 +218,16 @@ body {
   color: #000;
   background-color: #f2f2f2;
   border-radius: 4px;
+<<<<<<< HEAD
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+@-webkit-keyframes animate {
+  100% {
+    -moz-transform: rotateY(360deg);
+  }
+=======
   transition: all 0.2s ease-out;
 }
 
@@ -159,34 +252,60 @@ nav.sticky .nav-menu .nav-item .nav-links {
 nav.sticky .nav-menu .nav-item .nav-links:hover {
   color: #fff;
   background-color: #534e4e;
+>>>>>>> dev
 }
 
 @keyframes animate {
   100% {
+<<<<<<< HEAD
+    -moz-transform: rotateY(360deg);
+  }
+}
+
+.dropdown-menu {
+=======
     transform: rotateY(360deg);
   }
 }
 
 .navbar .nav-menu .nav-item .dropdown-menu {
+>>>>>>> dev
   width: 200px;
   position: absolute;
   top: 80px;
   list-style: none;
   text-align: start;
+<<<<<<< HEAD
+  border: 1px solid #fff;
+  padding: 3px;
+}
+
+.dropdown-menu li {
+  background: -webkit-gradient(linear, left top, right top, from(#1c1b1b), to(#1a1717));
+=======
   padding: 3px;
   z-index: 10;
 }
 
 .navbar .nav-menu .nav-item .dropdown-menu li {
+>>>>>>> dev
   background: linear-gradient(90deg, #1c1b1b 0%, #1a1717 100%);
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+.dropdown-menu li:hover {
+  background: #f2f2f2;
+}
+
+.dropdown-menu .dropdown-link {
+=======
 .navbar .nav-menu .nav-item .dropdown-menu li:hover {
   background: #f2f2f2;
 }
 
 .navbar .nav-menu .nav-item .dropdown-menu .dropdown-link {
+>>>>>>> dev
   display: block;
   width: 100%;
   height: 100%;
@@ -195,23 +314,44 @@ nav.sticky .nav-menu .nav-item .nav-links:hover {
   padding: 16px;
 }
 
+<<<<<<< HEAD
+.dropdown-menu .dropdown-link:hover {
+  color: #000;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+=======
 .navbar .nav-menu .nav-item .dropdown-menu .dropdown-link:hover {
   color: #000;
 }
 
 @media screen and (max-width: 991px) {
+>>>>>>> dev
   .navbar .navbar-logo {
     position: absolute;
     top: 0;
     left: 0;
+<<<<<<< HEAD
+    -webkit-transform: translate(25%, 50%);
+            transform: translate(25%, 50%);
+=======
     transform: translate(25%, 50%);
+>>>>>>> dev
   }
   .navbar .menu-icon {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
+<<<<<<< HEAD
+    -webkit-transform: translate(-100%, 60%);
+            transform: translate(-100%, 60%);
+=======
     transform: translate(-100%, 60%);
+>>>>>>> dev
     font-size: 1.8rem;
     cursor: pointer;
   }
@@ -220,21 +360,41 @@ nav.sticky .nav-menu .nav-item .nav-links:hover {
     font-size: 2rem;
   }
   .navbar .nav-menu {
+<<<<<<< HEAD
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+=======
     display: flex;
     flex-direction: column;
+>>>>>>> dev
     width: 100%;
     position: absolute;
     top: 80px;
     left: -100%;
     opacity: 1;
+<<<<<<< HEAD
+    -webkit-transition: all 0.5s ease;
+=======
+>>>>>>> dev
     transition: all 0.5s ease;
   }
   .nav-menu.active {
     background: #242222;
     left: 0;
     opacity: 1;
+<<<<<<< HEAD
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    z-index: 1;
+=======
     transition: all 0.5s ease;
     z-index: 9;
+>>>>>>> dev
   }
   .nav-menu.active .nav-links {
     text-align: center;
@@ -246,6 +406,61 @@ nav.sticky .nav-menu .nav-item .nav-links:hover {
     background-color: #f2f2f2;
     border-radius: 0;
   }
+<<<<<<< HEAD
+}
+
+.admin_logo {
+  text-align: center;
+}
+
+.admin_logo img {
+  margin-bottom: 10%;
+}
+
+.admin_logo .admin_text {
+  margin-bottom: 10%;
+}
+
+.ant-layout-footer {
+  padding: 0 50px;
+}
+
+.edit {
+  padding: 5px 25px;
+  margin: 0 5px;
+  background-color: #fff;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  color: #28a745;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.edit:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.delete {
+  padding: 5px 25px;
+  margin: 0 5px;
+  background-color: #fff;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  color: #dc3545;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.delete:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+=======
   .navbar .nav-menu .nav-item .dropdown-menu {
     width: 100%;
   }
@@ -824,4 +1039,5 @@ nav.sticky .nav-menu .nav-item .nav-links:hover {
   grid-column-start: 3;
   grid-column-end: 8;
 }
+>>>>>>> dev
 /*# sourceMappingURL=App.css.map */
