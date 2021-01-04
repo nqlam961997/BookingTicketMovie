@@ -1,5 +1,20 @@
-.container{
+.container {
+    max-width: 100%;
+    padding-right: 12%;
+    padding-left: 12%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+}
+
+.main-container {
+    position: relative;
     width: 100%;
+    margin: 0 auto;
+    padding: 0 !important;
+}
+
+.container-fluid{
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
